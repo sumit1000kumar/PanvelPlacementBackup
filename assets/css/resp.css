@@ -1,0 +1,155 @@
+/* navbar */
+@media only screen and (max-width: 480px) {
+    #navbarLogo {
+        width: auto;
+        height: 50px;
+    }
+    .notVisibleInMob{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    #navbarLogo {
+        width: auto;
+        height: 80px;
+    }
+    
+    .notVisibleInMob{
+        display: none;
+    }
+}
+
+/* hero section */
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 400px;
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* clients section */
+.placement-section {
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #000000;
+}
+
+/* Logo Marquee */
+.logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    margin: 40px 0;
+}
+
+.logo-marquee-inner {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+.logo-item {
+    display: inline-block;
+    margin: 0 30px;
+    vertical-align: middle;
+}
+
+.company-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Stats Section */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 10px;
+}
+
+.stat-box {
+    text-align: center;
+    width: 80px;
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+/* Animation */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .logo-item {
+        margin: 0 20px;
+    }
+    .stats-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    .logo-marquee {
+        margin: 30px 0;
+    }
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .stat-box {
+        width: 160px;
+    }
+}
+
+.gradient-border {
+    border: 4px solid;
+    border-image: linear-gradient(90deg, #ff6a00, #ee0979);
+    border-image-slice: 1;
+    border-radius: 12px;
+  }
+  
