@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panvel Placement Registration</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/resp.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    :root {
+      --primary-color: #3a0ca3;
+      --secondary-color: #4cc9f0;
+      --accent-color: #f72585;
+      --bg-color: #f8f9fa;
+      --text-dark: #2b2d42;
+      --text-light: #edf2f4;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #8338ec10, #3a86ff10);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .form-header h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+    
+    .form-header h1::after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 15%;
+    }
+    
+    .form-header p {
+      margin-top: 1rem;
+      opacity: 0.8;
+    }
+    
+    .form-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      animation: slideUp 0.5s ease;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .input-group {
+      flex: 1;
+    }
+    
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(58, 12, 163, 0.1);
+      outline: none;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .file-upload {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+    }
+    
+    .file-upload input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    .file-upload-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e9ecef;
+      border: 1px dashed #ced4da;
+      border-radius: 5px;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .file-upload-label:hover {
+      background: #dde2e6;
+    }
+    
+    .file-name {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      display: none;
+    }
+    
+    .checkbox-group {
+      margin: 1.5rem 0;
+    }
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .checkbox-container input[type="checkbox"] {
+      margin-right: 0.5rem;
+      width: auto;
+    }
+    
+    .submit-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .submit-btn:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .info-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .info-list {
+      list-style-type: none;
+    }
+    
+    .info-list li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .info-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: #d4edda;
+      border-radius: 8px;
+      margin-top: 2rem;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .success-message h3 {
+      color: #155724;
+      margin-bottom: 1rem;
+    }
+    
+    .success-message p {
+      color: #155724;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .form-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <!-- topbar starts -->
+        <div class="topbar container-fluid p-2">
+            <div class="row">
+                <div class="topbarContent col-lg-10 col-sm-9 col-9">
+                    <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
+                        Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
+                        successful placements & counting — be our next success story! | 📍 Job listings updated in real
+                        time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
+                        Panvel!</marquee>
+                </div>
+                <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
+                    <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- topbar ends -->
+
+        <!-- navbar starts -->
+        <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo" id="navbarLogo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span><i class="fa-solid fa-bars-staggered"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/testimonial.html">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar ends -->
+    </header>
+  <div class="container">
+    <div class="form-header">
+      <h1>Registration Form</h1>
+      <p>Complete the form below to register with Panvel Placement Cell and kickstart your career</p>
+    </div>
+    
+    <div class="form-container">
+      <form id="registration-form">
+        <!-- Personal Information -->
+        <div class="form-row">
+          <div class="input-group">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="first-name" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" name="last-name" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="input-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        
+        <!-- Academic Information -->
+        <div class="form-row">
+          <div class="input-group">
+            <label for="course">Course *</label>
+            <select id="course" name="course" required>
+              <option value="">Select your course</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+              <option value="MBA">MBA</option>
+              <option value="B.Sc">B.Sc</option>
+              <option value="M.Sc">M.Sc</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="branch">Branch/Specialization *</label>
+            <input type="text" id="branch" name="branch" placeholder="e.g., Computer Science, Finance" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="input-group">
+            <label for="graduation-year">Graduation Year *</label>
+            <select id="graduation-year" name="graduation-year" required>
+              <option value="">Select year</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="cgpa">Current CGPA *</label>
+            <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="Out of 10" required>
+          </div>
+        </div>
+        
+        <!-- Skills & Preferences -->
+        <div class="input-group">
+          <label for="skills">Technical Skills</label>
+          <textarea id="skills" name="skills" placeholder="List your technical skills, programming languages, tools, etc."></textarea>
+        </div>
+        
+        <div class="input-group">
+          <label for="resume">Upload Resume (PDF) *</label>
+          <div class="file-upload">
+            <label for="resume" class="file-upload-label" style="color: blueviolet; background-color: #25ced1;">
+              Choose File
+            </label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required>
+            <p class="file-name" id="file-name-display"></p>
+          </div>
+        </div>
+        
+        <div class="checkbox-group">
+          <label>Preferred Job Sectors</label>
+          <div class="checkbox-container">
+            <input type="checkbox" id="it" name="job-sectors" value="IT">
+            <label for="it">Information Technology</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="finance" name="job-sectors" value="Finance">
+            <label for="finance">Finance & Banking</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="consulting" name="job-sectors" value="Consulting">
+            <label for="consulting">Consulting</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="manufacturing" name="job-sectors" value="Manufacturing">
+            <label for="manufacturing">Manufacturing</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="other" name="job-sectors" value="Other">
+            <label for="other">Other</label>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="expectations">Career Expectations</label>
+          <textarea id="expectations" name="expectations" placeholder="Share your career goals and expectations from the placement cell"></textarea>
+        </div>
+        
+        <div class="checkbox-container">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the terms and conditions *</label>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Registration</button>
+      </form>
+    </div>
+    
+    <div class="info-card">
+      <h3>Registration Benefits</h3>
+      <ul class="info-list">
+        <li>Access to exclusive placement drives and job opportunities</li>
+        <li>Resume building and interview preparation workshops</li>
+        <li>One-on-one career counseling sessions</li>
+        <li>Industry-specific training and skill development programs</li>
+        <li>Regular updates about upcoming recruitment events</li>
+      </ul>
+    </div>
+    
+    <div class="success-message" id="success-message">
+      <h3>Registration Successful!</h3>
+      <p>Thank you for registering with Panvel Placement Cell. We will review your application and get back to you soon.</p>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // File upload display
+      const fileInput = document.getElementById('resume');
+      const fileNameDisplay = document.getElementById('file-name-display');
+      
+      fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          fileNameDisplay.textContent = this.files[0].name;
+          fileNameDisplay.style.display = 'block';
+        } else {
+          fileNameDisplay.style.display = 'none';
+        }
+      });
+      
+      // Form submission
+      const form = document.getElementById('registration-form');
+      const successMessage = document.getElementById('success-message');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // In a real implementation, you would handle form data submission to server here
+        // For demonstration, we'll just show the success message
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
