@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Jobs</title>
+  <link rel="stylesheet" href="/assets/css/admin-jobs.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Menu</h2>
+    <ul>
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-job.html">Manage Jobs</a></li>
+      <li><a href="candidates.html">Enrollments</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Top Header -->
+    <div class="header">
+      <h1>Manage Jobs</h1>
+      <div class="header-buttons">
+        <!-- Add Job Form -->
+        <button id="addJobBtn">Add Job</button>
+        <button id="exportBtn">Export to Excel</button>
+      </div>
+    </div>
+
+    <!-- Jobs Table -->
+    <table class="jobs-table">
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Company Name</th>
+            <th>Logo</th>
+            <th>Location</th>
+            <th>Post</th>
+            <th>Salary</th>
+            <th>Deadline</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="jobsTableBody">
+          <!-- Job rows will be inserted here -->
+        </tbody>
+      </table>
+      
+      <!-- Add Job Form (Initially Hidden) -->
+      <div id="addJobForm" style="display: none;">
+        <h2>Add Job</h2>
+        <form id="jobForm">
+          <input type="hidden" id="jobId" />
+          <input type="text" id="company" placeholder="Company" required /><br>
+          <img id="currentLogo" src="" alt="Current Logo" width="50" height="50"><br>
+
+          <input type="file" id="logo" /><br>
+          <input type="text" id="location" placeholder="Location" required /><br>
+          <input type="text" id="post" placeholder="Post" required /><br>
+          <input type="text" id="salary" placeholder="Salary" required /><br>
+          <input type="text" id="deadline" placeholder="Deadline" required /><br>
+          <textarea id="description" placeholder="Description" required></textarea><br>
+          <button type="submit">Save Job</button>
+        </form>
+      </div>
+
+  <script src="assets/js/admin-jobs.js"></script>
+</body>
+</html>

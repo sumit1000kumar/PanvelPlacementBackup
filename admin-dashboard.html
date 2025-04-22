@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="assets/css/admin-dashboard.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Menu</h2>
+    <ul>
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-job.html">Manage Jobs</a></li>
+      <li><a href="candidates.html">Enrollments</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Top Header -->
+    <div class="header">
+      <h1>Welcome, Admin</h1>
+    </div>
+
+    <!-- Dashboard Overview -->
+    <div class="dashboard-overview">
+      <div class="card">
+        <h3>Total Jobs Listed</h3>
+        <p id="totalJobs">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Candidates Enrolled</h3>
+        <p id="totalCandidates">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Candidates with Jobs</h3>
+        <p id="candidatesWithJobs">0</p>
+      </div>
+      <div class="card">
+        <h3>Other Stats</h3>
+        <p id="otherStats">0</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

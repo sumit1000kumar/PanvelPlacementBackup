@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply Now</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      background: white;
+      margin: 60px auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      padding: 6px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #777;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+
+    <h2>Apply Now</h2>
+    <form id="applicationForm">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required />
+
+      <label for="college">College / University</label>
+      <input type="text" name="college" id="college" placeholder="Your College/University" required />
+
+      <label for="course">Course</label>
+      <input type="text" name="course" id="course" placeholder="Your Course" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" placeholder="your@email.com" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" placeholder="1234567890" required />
+
+      <label for="resume">Upload Resume (PDF)</label>
+      <input type="file" name="resume" id="resume" accept=".pdf" required />
+      <div class="note">Only PDF files are allowed</div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('applicationForm');
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('jobId');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(form);
+      formData.append('jobId', jobId); // 👈 Add jobId to formData
+  
+      try {
+        const response = await fetch('http://localhost:5000/apply', {
+          method: 'POST',
+          body: formData,
+        });
+  
+        const result = await response.text();
+        if (response.ok) {
+          alert('Application submitted successfully!');
+        } else {
+          alert('Error: ' + result);
+        }
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        alert('Error submitting application');
+      }
+    });
+
+   
+
+  </script>
+  
+</body>
+</html>

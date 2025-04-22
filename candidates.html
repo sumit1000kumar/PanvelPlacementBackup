@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Enrollments</title>
+  <link rel="stylesheet" href="assets/css/candidates.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Menu</h2>
+    <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-job.html">Manage Jobs</a></li>
+        <li><a href="candidates.html">Enrollments</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h1>Enrolled Candidates</h1>
+    </div>
+
+    <!-- Candidates Table -->
+    <table class="jobs-table">
+      <thead>
+        <tr>
+          <th>Job ID</th>
+          <th>Name</th>
+          <th>College</th>
+          <th>Course</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Resume</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="candidatesTableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+   async function fetchCandidates() {
+  try {
+    const res = await fetch("http://localhost:5000/candidates/applicants");
+    const data = await res.json();
+    const tableBody = document.getElementById("candidatesTableBody");
+
+    tableBody.innerHTML = ""; // Clear the table before filling
+
+    data.applicants.forEach((app) => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${app.jobId || "Not Available"}</td>  <!-- Show jobId if available -->
+        <td>${app.name}</td>
+        <td>${app.college}</td>
+        <td>${app.course}</td>
+        <td>${app.email}</td>
+        <td>${app.phone}</td>
+        <td><a href="/uploads/${app.resumePath}" target="_blank">View Resume</a></td>
+        <td>${app.status || "Pending"}</td>
+        <td>
+          <select onchange="updateStatus('${app._id}', this.value)">
+            <option value="">--Set--</option>
+            <option value="Selected">Selected</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+  } catch (err) {
+    console.error("Error fetching candidates:", err);
+  }
+}
+
+
+    async function updateStatus(id, status) {
+  try {
+    const res = await fetch(`http://localhost:5000/candidates/update-status/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status })
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      alert("Status updated!");
+      location.reload();  // Refresh the page to fetch the latest data
+    } else {
+      alert("Failed to update status.");
+    }
+  } catch (err) {
+    console.error("Error updating status:", err);
+  }
+}
+
+
+    document.addEventListener("DOMContentLoaded", fetchCandidates);
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Jobs: Job Portal ViMEET</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/public/css/style.css"> -->
+    <link rel="stylesheet" href="/assets/css/jobs.css">
+  <!-- font awesome cdn -->
+  <script src="https://kit.fontawesome.com/7ab50d13be.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <header>
+        <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm w-100">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img
+              src="https://imgs.search.brave.com/r3HVQaxdgGbb4FZyRfO-wg-2ixWv8lq8GwGnnzLcbis/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzAwLzg2LzE4/LzM2MF9GXzIwMDg2/MTgxMl9wMTNHRW92/ZElVVDlscE5PbjVM/MHppRmNSWnF4dkhI/YS5qcGc"
+              alt="logo" height="50"></a>
+          <button class="navbar-toggler" style="border: none;" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span><i class="fa-solid fa-bars-staggered"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav col-lg-10 justify-content-center gap-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Vacancies
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="jobs.html">Jobs</a></li>
+                  <li><a class="dropdown-item" href="internships.html">Internships</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="jobs.html">Upcoming Drives</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Alumini</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Resources</a>
+              </li>
+            </ul>
+            <div class="btns d-flex gap-3 col-lg-2">
+              <button class="btn1 btn" type="button"><a href="login.html">Login</a></button>
+              <button class="btn2 btn" type="button"><a href="register.html">Register</a></button>
+            </div>
+          </div>
+      </nav>
+
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 jobHeading">"Find Your Next Opportunity!"</h1>
+        <div class="row">
+          <div class="col-md-3">
+            <!-- Toggle Button for Mobile View -->
+            <button class="btn btn-primary  d-md-none" id="toggleFilters" style="background-color: #ef4444; margin: 10px; border-color: #ef4444;"><i class="fa-solid fa-filter"></i></button>
+        
+            <div class="filter-section p-3 bg-white shadow-sm rounded collapse d-md-block" id="filterContainer">
+                <h5>Filter</h5>
+                <button id="clearFilters" class="btn btn-sm btn-link text-muted">Clear all</button>
+        
+                <div class="mb-3">
+                    <h6>Salary Range</h6>
+                    <div class="d-flex gap-2">
+                        <input type="number" id="minSalary" class="form-control" placeholder="Min">
+                        <input type="number" id="maxSalary" class="form-control" placeholder="Max">
+                    </div>
+                </div>
+        
+                <div class="mb-3">
+                    <h6>Criteria</h6>
+                            <!-- Location Filter (Manual Entry + Dropdown) -->
+        <!-- Post Filter (Manual Entry + Dropdown) -->
+        <div class="d-flex gap-2">
+            <input type="text" id="location" class="form-control" list="locationOptions" placeholder="Enter or select location">
+
+            <datalist id="locationOptions">
+              <option value="Mumbai">
+              <option value="Delhi">
+              <option value="Bangalore">
+              <option value="Hyderabad">
+              <option value="Chennai">
+            </datalist>
+            
+        </div>
+
+                <!-- Post Filter (Manual Entry + Dropdown) -->
+                <div class="d-flex gap-2">
+                    <input type="text" id="post" class="form-control" list="postOptions" placeholder="Enter or select post">
+                    <datalist id="postOptions">
+                      <option value="Frontend Developer">
+                      <option value="Backend Developer">
+                      <option value="Data Analyst">
+                      <option value="Software Engineer">
+                    </datalist>
+                    
+                </div>
+
+                    <select id="experience" class="form-select">
+                        <option value="">Experience Level</option>
+                        <option value="fresher">Fresher</option>
+                        <option value="experienced">Experienced</option>
+                    </select>
+                </div>
+        
+                <button id="applyFilters" class="btn btn-primary w-100">Apply Filters</button>
+            </div>
+        </div>
+        
+            <div class="col-md-9">
+                <h5 id="jobCount">Active Job Opportunities: 0</h5>
+                <div id="jobList" class="row g-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Details Modal -->
+<!-- Example Modal Structure -->
+<!-- Modal for Job Details -->
+<!-- Modal for Job Details -->
+<div id="jobDetailsModal" style="display: none;">
+    <div class="modal-content">
+      <span onclick="closeJobDetails()" class="close-btn">&times;</span>
+      <div class="d-flex align-items-center">
+        <img id="modalLogo" src="" alt="Company Logo" style="width: 50px; height: 50px; object-fit: contain; margin-right: 15px;">
+        <h2 id="modalJobTitle"></h2>
+      </div>
+      <p><strong>Company:</strong> <span id="modalCompany"></span></p>
+      <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+      <p><strong>Salary:</strong> <span id="modalSalary"></span></p>
+      <p><strong>CGPA Required:</strong> <span id="modalCgpa"></span></p>
+      <p><strong>Max Live KTs:</strong> <span id="modalLiveKT"></span></p>
+      <p><strong>Experience:</strong> <span id="modalExperience"></span></p>
+      <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+    </div>
+  </div>
+  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="/assets/js/jobs.js"></script>
+</body>
+</html>
