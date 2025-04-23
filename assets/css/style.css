@@ -156,7 +156,6 @@
     font-weight: 600;
     margin-bottom: 2rem;
     background-color: #0d6efd;
-    border: none;
 }
 
 .badge-item {
@@ -165,6 +164,7 @@
     border-radius: 4px;
     font-weight: 500;
     font-size: 0.9rem;
+    
 }
 
 /* clients section */
@@ -183,6 +183,7 @@
     margin-bottom: 40px;
     text-align: center;
     font-size: 2.5rem;
+    font-family: "Winky Rough", sans-serif;
 }
 
 .marquee-container {
@@ -291,12 +292,13 @@
 
 /* jobs section */
 .job-card {
-    background: white;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.2);
     transition: transform 0.2s ease-in-out;
+    
 }
 
 .job-card:hover {
@@ -308,6 +310,7 @@
     justify-content: space-between;
     font-size: 14px;
     font-weight: bold;
+    
 }
 
 .job-title {
@@ -408,6 +411,7 @@
     text-align: left;
     position: relative;
     animation: fadeIn 0.3s ease-in-out;
+    border: 50px solid black;
 }
 
 .close-btn {
@@ -463,4 +467,22 @@
     .toggle-filters {
         display: block;
     }
+}
+
+.viewMoreBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.viewMoreBtn a{
+    text-decoration: none;
+    color: #6c2bd9;
+    padding: 4px 10px;
+    text-align: center;
+}
+
+.viewMoreBtn a:hover{
+    background-color: yellow;
+    border-radius: 5px;
 }
