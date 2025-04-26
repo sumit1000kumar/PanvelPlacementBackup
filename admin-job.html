@@ -4,11 +4,304 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Jobs</title>
-  <link rel="stylesheet" href="/assets/css/admin-jobs.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      background: #2c3e50;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .sidebar h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .sidebar ul {
+      list-style: none;
+    }
+    
+    .sidebar li {
+      margin-bottom: 15px;
+    }
+    
+    .sidebar a {
+      color: #ecf0f1;
+      text-decoration: none;
+      display: block;
+      padding: 8px 10px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    
+    .sidebar a:hover {
+      background: #34495e;
+    }
+    
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      padding: 15px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1001;
+      background: #2c3e50;
+      color: white;
+      border-radius: 4px;
+      border: none;
+    }
+    
+    /* Main Content */
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      transition: margin 0.3s ease;
+    }
+    
+    .header {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header h1 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .header-buttons button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      background: #2c3e50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .header-buttons button:hover {
+      background: #34495e;
+    }
+    
+    /* Table Styles */
+    .table-container {
+      overflow-x: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .jobs-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    
+    .jobs-table th, .jobs-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .jobs-table th {
+      background-color: #2c3e50;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+    
+    .jobs-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .jobs-table tr:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .jobs-table img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 5px;
+    }
+    
+    .action-buttons button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .edit-btn {
+      background: #3498db;
+      color: white;
+    }
+    
+    .delete-btn {
+      background: #e74c3c;
+      color: white;
+    }
+    
+    /* Form Styles */
+    #addJobForm {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    
+    #addJobForm h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    
+    #jobForm input, 
+    #jobForm textarea, 
+    #jobForm select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    #jobForm textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    
+    #jobForm button[type="submit"] {
+      padding: 10px 20px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .jobs-table th, .jobs-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .header h1 {
+        font-size: 1.3rem;
+      }
+      
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      
+      .main-content {
+        margin-left: 0;
+        padding-top: 70px;
+      }
+      
+      .header {
+        padding: 15px;
+      }
+      
+      .header h1 {
+        font-size: 1.2rem;
+      }
+      
+      .header-buttons button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header {
+        padding: 10px;
+      }
+      
+      .header h1 {
+        font-size: 1.1rem;
+      }
+      
+      .table-container {
+        padding: 5px;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        gap: 3px;
+      }
+      
+      #addJobForm {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hamburger Menu Toggle -->
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <h2>Admin Menu</h2>
     <ul>
       <li><a href="admin-dashboard.html">Dashboard</a></li>
@@ -30,8 +323,9 @@
       </div>
     </div>
 
-    <!-- Jobs Table -->
-    <table class="jobs-table">
+    <!-- Table Container for horizontal scrolling -->
+    <div class="table-container">
+      <table class="jobs-table">
         <thead>
           <tr>
             <th>Job ID</th>
@@ -49,25 +343,66 @@
           <!-- Job rows will be inserted here -->
         </tbody>
       </table>
+    </div>
       
-      <!-- Add Job Form (Initially Hidden) -->
-      <div id="addJobForm" style="display: none;">
-        <h2>Add Job</h2>
-        <form id="jobForm">
-          <input type="hidden" id="jobId" />
-          <input type="text" id="company" placeholder="Company" required /><br>
-          <img id="currentLogo" src="" alt="Current Logo" width="50" height="50"><br>
+    <!-- Add Job Form (Initially Hidden) -->
+    <div id="addJobForm" style="display: none;">
+      <h2>Add Job</h2>
+      <form id="jobForm">
+        <input type="hidden" id="jobId" />
+        <input type="text" id="company" placeholder="Company" required /><br>
+        <img id="currentLogo" src="" alt="Current Logo" style="display: none;"><br>
+        <input type="file" id="logo" /><br>
+        <input type="text" id="location" placeholder="Location" required /><br>
+        <input type="text" id="post" placeholder="Post" required /><br>
+        <input type="text" id="salary" placeholder="Salary" required /><br>
+        <input type="date" id="deadline" placeholder="Deadline" required /><br>
+        <textarea id="description" placeholder="Description" required></textarea><br>
+        <button type="submit">Save Job</button>
+      </form>
+    </div>
+  </div>
 
-          <input type="file" id="logo" /><br>
-          <input type="text" id="location" placeholder="Location" required /><br>
-          <input type="text" id="post" placeholder="Post" required /><br>
-          <input type="text" id="salary" placeholder="Salary" required /><br>
-          <input type="text" id="deadline" placeholder="Deadline" required /><br>
-          <textarea id="description" placeholder="Description" required></textarea><br>
-          <button type="submit">Save Job</button>
-        </form>
-      </div>
+  <script>
+    // Toggle sidebar on hamburger click
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebar = document.getElementById('sidebar');
+      
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        // Change icon based on state
+        const icon = menuToggle.querySelector('i');
+        if (sidebar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            e.target !== menuToggle && 
+            !menuToggle.contains(e.target)) {
+          sidebar.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
 
-  <script src="assets/js/admin-jobs.js"></script>
+      // Add Job Form Toggle
+      const addJobBtn = document.getElementById('addJobBtn');
+      const addJobForm = document.getElementById('addJobForm');
+      
+      addJobBtn.addEventListener('click', function() {
+        addJobForm.style.display = addJobForm.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
