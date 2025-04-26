@@ -204,6 +204,7 @@ document.getElementById('addJobBtn').addEventListener('click', () => {
     }
   });
   
+
   document.addEventListener('DOMContentLoaded', () => {
     fetchJobs();
   });
@@ -344,3 +345,37 @@ document.getElementById('addJobBtn').addEventListener('click', () => {
     });
   });
   
+
+  // Toggle sidebar on hamburger click
+    document.addEventListener("DOMContentLoaded", function() {
+      fetchCandidates();
+      
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebar = document.getElementById('sidebar');
+      
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        // Change icon based on state
+        const icon = menuToggle.querySelector('i');
+        if (sidebar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            e.target !== menuToggle && 
+            !menuToggle.contains(e.target)) {
+          sidebar.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
