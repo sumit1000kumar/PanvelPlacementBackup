@@ -204,6 +204,7 @@ document.getElementById('addJobBtn').addEventListener('click', () => {
     }
   });
   
+
   document.addEventListener('DOMContentLoaded', () => {
     fetchJobs();
   });
@@ -301,3 +302,80 @@ document.getElementById('addJobBtn').addEventListener('click', () => {
       });
   }
   
+  document.getElementById('exportBtn').addEventListener('click', exportJobsToExcel);
+
+  function exportJobsToExcel() {
+    const table = document.getElementById('jobsTableBody');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    
+    const data = rows.map(row => {
+      const cells = row.querySelectorAll('td');
+      return {
+        JobID: cells[0]?.innerText,
+        Company: cells[1]?.innerText,
+        Location: cells[3]?.innerText,
+        Post: cells[4]?.innerText,
+        Salary: cells[5]?.innerText,
+        Deadline: cells[6]?.innerText,
+        Description: cells[7]?.innerText
+      };
+    });
+  
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Jobs");
+  
+    XLSX.writeFile(workbook, "jobs-list.xlsx");
+  }
+  
+
+  document.getElementById('searchCompanyInput').addEventListener('input', function() {
+    const searchText = this.value.toLowerCase();
+    const tableRows = document.querySelectorAll('#jobsTableBody tr');
+  
+    tableRows.forEach(row => {
+      const companyCell = row.querySelector('td:nth-child(2)'); // 2nd column = Company Name
+      const companyName = companyCell.textContent.toLowerCase();
+  
+      if (companyName.includes(searchText)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+  
+
+  // Toggle sidebar on hamburger click
+    document.addEventListener("DOMContentLoaded", function() {
+      fetchCandidates();
+      
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebar = document.getElementById('sidebar');
+      
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        // Change icon based on state
+        const icon = menuToggle.querySelector('i');
+        if (sidebar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            e.target !== menuToggle && 
+            !menuToggle.contains(e.target)) {
+          sidebar.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });

@@ -82,18 +82,46 @@
     }
     
     .header {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex; /* add this */
+  justify-content: space-between; /* add this */
+  align-items: center; /* add this */
+  flex-wrap: wrap; /* optional, for small screens */
+}
+
     
     .header h1 {
       font-size: 1.5rem;
       color: #2c3e50;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
     }
     
+    .header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  background: #2c3e50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-items: center;
+}
+
+.header-buttons button:hover {
+  background: #34495e;
+}
+
     /* Table Styles */
     .table-container {
       overflow-x: auto;
@@ -207,6 +235,11 @@
   <div class="main-content">
     <div class="header">
       <h1>Enrolled Candidates</h1>
+      <div class="header-buttons">
+        <input type="text" id="searchInput" placeholder="Search by Job ID or Name" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+
+        <button id="exportBtn">Export to Excel</button>
+      </div>
     </div>
 
     <!-- Table Container for horizontal scrolling -->
@@ -229,8 +262,10 @@
       </table>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
   <script>
+
     async function fetchCandidates() {
       try {
         const res = await fetch("http://localhost:5000/candidates/applicants");
@@ -323,6 +358,51 @@
         }
       });
     });
+
+   
+  document.getElementById('exportBtn').addEventListener('click', exportCandidatesToExcel);
+
+function exportCandidatesToExcel() {
+  const table = document.getElementById('candidatesTableBody');
+  const rows = Array.from(table.querySelectorAll('tr'));
+  
+  const data = rows.map(row => {
+    const cells = row.querySelectorAll('td');
+    return {
+      "Job ID": cells[0]?.innerText,
+      "Name": cells[1]?.innerText,
+      "College": cells[2]?.innerText,
+      "Course": cells[3]?.innerText,
+      "Email": cells[4]?.innerText,
+      "Phone": cells[5]?.innerText,
+      "Resume Link": cells[6]?.innerText,
+      "Status": cells[7]?.innerText
+    };
+  });
+
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Candidates");
+
+  XLSX.writeFile(workbook, "enrolled-candidates.xlsx");
+}
+
+
+document.getElementById('searchInput').addEventListener('input', function () {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#candidatesTableBody tr');
+
+  rows.forEach(row => {
+    const jobId = row.children[0]?.innerText.toLowerCase();
+    const name = row.children[1]?.innerText.toLowerCase();
+    if (jobId.includes(filter) || name.includes(filter)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
+
   </script>
 </body>
 </html>

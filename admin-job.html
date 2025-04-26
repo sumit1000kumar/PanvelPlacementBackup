@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="/assets/css/admin-jobs.css" />
 </head>
 <body>
+
+    <!-- Hamburger Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>Admin Menu</h2>
@@ -27,11 +33,16 @@
     <!-- Top Header -->
     <div class="header">
       <h1>Manage Jobs</h1>
+
+      <div class="header-actions">
+        <input type="text" id="searchCompanyInput" placeholder="Search by Company Name..." />
+        
       <div class="header-buttons">
         <!-- Add Job Form -->
         <button id="addJobBtn">Add Job</button>
         <button id="exportBtn">Export to Excel</button>
       </div>
+    </div>
     </div>
 
     <!-- Jobs Table -->
@@ -226,5 +237,7 @@
   }
   
    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
 </body>
 </html>

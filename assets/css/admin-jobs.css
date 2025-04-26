@@ -109,6 +109,26 @@ body {
   background: #34495e;
 }
 
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#searchCompanyInput {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+
+
+
+
 /* Table Styles */
 .table-container {
   overflow-x: auto;
