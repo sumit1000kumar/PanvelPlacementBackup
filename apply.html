@@ -157,7 +157,8 @@
           body: formData,
         });
   
-        const result = await response.json();  // <<----- changed to `.json()` because your backend should return JSON
+        const result = await response.text();
+        console.log(result); // <<----- changed to `.json()` because your backend should return JSON
         if (response.ok) {
           alert('Application submitted successfully!');
           form.reset(); // optional: clear form after success
