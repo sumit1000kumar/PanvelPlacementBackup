@@ -1,337 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panvel Placement Registration</title>
+  <title>Candidate Registration - Panvel Placement</title>
+  <meta name="description"
+    content="Panvel Placement is the best recruitment agency in Navi Mumbai, connecting freshers and experienced professionals with top companies.">
+  <meta name="keywords"
+    content="Panvel Placement, Recruitment Agency, Navi Mumbai Jobs, Job Vacancies, Employment Services">
+  <meta name="author" content="Panvel Placement">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Panvel Placement - Best Recruitment Agency in Navi Mumbai">
+  <meta property="og:description"
+    content="Offering expert job placement services in Panvel, Navi Mumbai since 2018. Find your dream job today!">
+  <meta property="og:image" content="/assets/img/logo/navbarLogo.png">
+  <meta property="og:url" content="https://www.panvelplacement.in">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Panvel Placement">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Google Maps Structured Data -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Panvel Placement",
+    "image": "https://www.panvelplacement.in/assets/images/office.jpg",
+    "@id": "https://www.google.com/maps/place/Panvel+Placement/",
+    "url": "https://www.panvelplacement.in",
+    "telephone": "+91 84250 50976",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "SHOP NO-18, NK HERITAGE, Railway Station, Forest Colony",
+        "addressLocality": "Panvel",
+        "addressRegion": "Navi Mumbai",
+        "postalCode": "410206",
+        "addressCountry": "IN"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "18.988244",
+        "longitude": "73.107414"
+    },
+    "openingHours": "Mo-Sa 09:00-20:30",
+    "sameAs": [
+        "https://www.facebook.com/PanvelPlacement",
+        "https://www.linkedin.com/company/panvel-placement"
+    ]
+}
+</script>
+
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/assets/css/main.min.per.css">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/resp.css">
+  <link rel="stylesheet" href="/assets/css/registration.css">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    :root {
-      --primary-color: #3a0ca3;
-      --secondary-color: #4cc9f0;
-      --accent-color: #f72585;
-      --bg-color: #f8f9fa;
-      --text-dark: #2b2d42;
-      --text-light: #edf2f4;
-      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #8338ec10, #3a86ff10);
-      color: var(--text-dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .form-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    .form-header h1 {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-    
-    .form-header h1::after {
-      content: '';
-      position: absolute;
-      width: 70%;
-      height: 4px;
-      border-radius: 2px;
-      background: var(--accent-color);
-      bottom: 0;
-      left: 15%;
-    }
-    
-    .form-header p {
-      margin-top: 1rem;
-      opacity: 0.8;
-    }
-    
-    .form-container {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      animation: slideUp 0.5s ease;
-    }
-    
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .input-group {
-      flex: 1;
-    }
-    
-    .input-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: var(--text-dark);
-    }
-    
-    .input-group input,
-    .input-group select,
-    .input-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .input-group input:focus,
-    .input-group select:focus,
-    .input-group textarea:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(58, 12, 163, 0.1);
-      outline: none;
-    }
-    
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    
-    .file-upload {
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      width: 100%;
-    }
-    
-    .file-upload input[type="file"] {
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-    
-    .file-upload-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e9ecef;
-      border: 1px dashed #ced4da;
-      border-radius: 5px;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    
-    .file-upload-label:hover {
-      background: #dde2e6;
-    }
-    
-    .file-name {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      display: none;
-    }
-    
-    .checkbox-group {
-      margin: 1.5rem 0;
-    }
-    
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-    
-    .checkbox-container input[type="checkbox"] {
-      margin-right: 0.5rem;
-      width: auto;
-    }
-    
-    .submit-btn {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: block;
-      width: 100%;
-      margin-top: 1rem;
-      box-shadow: var(--shadow);
-    }
-    
-    .submit-btn:hover {
-      background: var(--primary-color);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    
-    .info-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      box-shadow: var(--shadow);
-    }
-    
-    .info-card h3 {
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
-    
-    .info-list {
-      list-style-type: none;
-    }
-    
-    .info-list li {
-      margin-bottom: 0.8rem;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-    
-    .info-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-    
-    /* Success Message */
-    .success-message {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-      background: #d4edda;
-      border-radius: 8px;
-      margin-top: 2rem;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .success-message h3 {
-      color: #155724;
-      margin-bottom: 1rem;
-    }
-    
-    .success-message p {
-      color: #155724;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .form-row {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      
-      .form-header h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/7ab50d13be.js" crossorigin="anonymous"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+
 </head>
+
 <body>
-
-    <header>
-        <!-- topbar starts -->
-        <div class="topbar container-fluid p-2">
-            <div class="row">
-                <div class="topbarContent col-lg-10 col-sm-9 col-9">
-                    <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
-                        Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
-                        successful placements & counting — be our next success story! | 📍 Job listings updated in real
-                        time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
-                        Panvel!</marquee>
-                </div>
-                <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
-                    <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+  <header>
+    <!-- topbar starts -->
+    <div class="topbar container-fluid p-2">
+      <div class="row">
+        <div class="topbarContent col-lg-10 col-sm-9 col-9">
+          <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
+            Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
+            successful placements & counting — be our next success story! | 📍 Job listings updated in real
+            time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
+            Panvel!</marquee>
         </div>
-        <!-- topbar ends -->
+        <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
+          <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- topbar ends -->
 
-        <!-- navbar starts -->
-        <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo" id="navbarLogo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span><i class="fa-solid fa-bars-staggered"></i></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">Jobs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/testimonial.html">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
-                </div>
-            </div>
-        </nav>
-        <!-- navbar ends -->
-    </header>
-  <div class="container">
+    <!-- navbar starts -->
+    <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo"
+            id="navbarLogo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span><i class="fa-solid fa-bars-staggered"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs.html">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonialSection">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact</a>
+            </li>
+          </ul>
+          <button class="btn navBtn"><a href="tel:+918425050976">Reach Out</a></button>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar ends -->
+  </header>
+
+  <div class="container" style="border: 1px solid black; margin: 20px auto; padding: 20px; border-radius: 20px; box-shadow: 5px 5px 10px rgba(100, 100, 200, 0.5);">
     <div class="form-header">
       <h1>Registration Form</h1>
-      <p>Complete the form below to register with Panvel Placement Cell and kickstart your career</p>
+      <p>Complete the form below to register with Panvel Placement and kickstart your career</p>
     </div>
-    
+
     <div class="form-container">
       <form id="registration-form">
         <!-- Personal Information -->
@@ -340,25 +144,25 @@
             <label for="first-name">First Name *</label>
             <input type="text" id="first-name" name="first-name" required>
           </div>
-          
+
           <div class="input-group">
             <label for="last-name">Last Name *</label>
             <input type="text" id="last-name" name="last-name" required>
           </div>
         </div>
-        
+
         <div class="form-row">
           <div class="input-group">
             <label for="email">Email Address *</label>
             <input type="email" id="email" name="email" required>
           </div>
-          
+
           <div class="input-group">
             <label for="phone">Phone Number *</label>
             <input type="tel" id="phone" name="phone" required>
           </div>
         </div>
-        
+
         <!-- Academic Information -->
         <div class="form-row">
           <div class="input-group">
@@ -374,13 +178,13 @@
               <option value="M.Sc">M.Sc</option>
             </select>
           </div>
-          
+
           <div class="input-group">
             <label for="branch">Branch/Specialization *</label>
             <input type="text" id="branch" name="branch" placeholder="e.g., Computer Science, Finance" required>
           </div>
         </div>
-        
+
         <div class="form-row">
           <div class="input-group">
             <label for="graduation-year">Graduation Year *</label>
@@ -392,30 +196,31 @@
               <option value="2028">2028</option>
             </select>
           </div>
-          
+
           <div class="input-group">
             <label for="cgpa">Current CGPA *</label>
             <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="Out of 10" required>
           </div>
         </div>
-        
+
         <!-- Skills & Preferences -->
         <div class="input-group">
           <label for="skills">Technical Skills</label>
-          <textarea id="skills" name="skills" placeholder="List your technical skills, programming languages, tools, etc."></textarea>
+          <textarea id="skills" name="skills"
+            placeholder="List your technical skills, programming languages, tools, etc."></textarea>
         </div>
-        
+
         <div class="input-group">
           <label for="resume">Upload Resume (PDF) *</label>
           <div class="file-upload">
-            <label for="resume" class="file-upload-label" style="color: blueviolet; background-color: #25ced1;">
+            <label for="resume" class="file-upload-label" style="color: #ffffff; background-color: var(--hover-color); border: 1px solid var(--hover-color);">
               Choose File
             </label>
             <input type="file" id="resume" name="resume" accept=".pdf" required>
             <p class="file-name" id="file-name-display"></p>
           </div>
         </div>
-        
+
         <div class="checkbox-group">
           <label>Preferred Job Sectors</label>
           <div class="checkbox-container">
@@ -439,21 +244,22 @@
             <label for="other">Other</label>
           </div>
         </div>
-        
+
         <div class="input-group">
           <label for="expectations">Career Expectations</label>
-          <textarea id="expectations" name="expectations" placeholder="Share your career goals and expectations from the placement cell"></textarea>
+          <textarea id="expectations" name="expectations"
+            placeholder="Share your career goals and expectations from the Panvel Placement"></textarea>
         </div>
-        
+
         <div class="checkbox-container">
           <input type="checkbox" id="terms" name="terms" required>
           <label for="terms">I agree to the terms and conditions *</label>
         </div>
-        
+
         <button type="submit" class="submit-btn">Submit Registration</button>
       </form>
     </div>
-    
+
     <div class="info-card">
       <h3>Registration Benefits</h3>
       <ul class="info-list">
@@ -464,20 +270,126 @@
         <li>Regular updates about upcoming recruitment events</li>
       </ul>
     </div>
-    
+
     <div class="success-message" id="success-message">
       <h3>Registration Successful!</h3>
-      <p>Thank you for registering with Panvel Placement Cell. We will review your application and get back to you soon.</p>
+      <p>Thank you for registering with Panvel Placement Cell. We will review your application and get back to you soon.
+      </p>
     </div>
   </div>
-  
+
+  <footer>
+    <div class="footContainer">
+      <div class="footcol">
+        <h3>About Panvel Placement</h3>
+        <p><a href="https://www.panvelplacement.in" style="text-decoration: none; color: var(--secondary-color4);">
+            Panvel Placement</a> connects talented professionals with top employers across Navi Mumbai.
+          From entry-level roles to leadership positions, we empower you to take the next step in your career.
+        </p>
+      </div>
+
+      <div class="footcol">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="/jobs.html">Browse Jobs</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Career Advice</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Insights & News</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">FAQs</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="contact.html">Get Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footcol">
+        <h3>Popular Roles</h3>
+        <ul>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">IT & Software</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Accounting & Finance</a>
+          </li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Marketing</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">HR & Admin</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Design & Creative</a></li>
+        </ul>
+      </div>
+
+      <div class="footcol">
+        <h3>Stay Connected</h3>
+        <div class="footsocial">
+          <ul>
+            <li><a href="https://www.facebook.com/PanvelPlacement" class="fa-brands fa-square-facebook"></a>
+            </li>
+            <li><a href="https://twitter.com/PanvelPlacement" class="fa-brands fa-x-twitter"></a></li>
+            <li><a href="https://www.linkedin.com/company/panvel-placement" class="fa-brands fa-linkedin"></a></li>
+            <li><a href="https://www.instagram.com/panvelplacement" class="fa fa-instagram"></a></li>
+          </ul>
+        </div>
+        <p><i class="fa-regular fa-envelope"></i>
+          <a href="mailto:akshaykolii477@gmail.com" id="footmail">support@panvelplacement.in</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; <span id="currentYear"></span> Panvel Placement. All rights reserved.</p>
+      <br>
+      Developed by <span class="developers gradient-text">Sumit Kumar </span>
+      <a href="mailto:sumitkumar9012004@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> ,
+      <span class="developers gradient-text">Abhishek Solanki </span>
+      <a href="mailto:solankiwork003@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> & <span
+        class="developers gradient-text">Ajay Prasad </span>
+      <a href="mailto:ajjjuupd18@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+
+    <script>
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+
+  </footer>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript to update the year dynamically
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+
+
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-to-top"><i class="fa-solid fa-angles-up"></i></a>
+  <!-- <a href="#" class="AiChatBot" aria-label="Chat with AI to find your related study stuff and info quickly">
+        </a> -->
+  <a href="https://wa.link/n4jirl" target="_blank" class="whatsappButton" aria-label="Join our WhatsApp Group">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Chatbot Icon -->
+  <div id="chatbot-container">
+    <button id="chatbot-icon">
+      <i class="fa-regular fa-comment" style="color: #ffffff;"></i></button>
+    <!-- Chatbot Dialog -->
+    <div id="chatbot-dialog">
+      <div id="chatbot-header">
+        <span>Exam Chatbot</span>
+        <button id="chatbot-close">✖</button>
+      </div>
+      <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+      </div>
+      <div id="chatbot-input-area">
+        <div id="autocomplete-suggestions"></div>
+        <input type="text" id="chatbot-input" placeholder="Type your message..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+      <div id="loading-spinner" style="display: none;">⏳ Loading...</div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
       // File upload display
       const fileInput = document.getElementById('resume');
       const fileNameDisplay = document.getElementById('file-name-display');
-      
-      fileInput.addEventListener('change', function() {
+
+      fileInput.addEventListener('change', function () {
         if (this.files && this.files[0]) {
           fileNameDisplay.textContent = this.files[0].name;
           fileNameDisplay.style.display = 'block';
@@ -485,23 +397,39 @@
           fileNameDisplay.style.display = 'none';
         }
       });
-      
+
       // Form submission
       const form = document.getElementById('registration-form');
       const successMessage = document.getElementById('success-message');
-      
-      form.addEventListener('submit', function(e) {
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // In a real implementation, you would handle form data submission to server here
         // For demonstration, we'll just show the success message
         form.style.display = 'none';
         successMessage.style.display = 'block';
-        
+
         // Scroll to success message
         successMessage.scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
+
+
+  <!-- bootstrap js -->
+  <script defer src="/assets/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- bottom to top js -->
+  <script src="/assets/js/bottomToTop.js"></script>
+
+  <!-- chatbot js -->
+  <script src="/assets/js/chatbot.js"></script>
+
+
+
+  <script src="/assets/js/hamburger.js"></script>
 </body>
+
 </html>
