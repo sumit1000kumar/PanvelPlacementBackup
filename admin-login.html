@@ -24,17 +24,24 @@
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      const res = await fetch("http://127.0.0.1:5000/admin/login", {  // Use the correct port (5000)
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      try {
+        const res = await fetch("http://127.0.0.1:5000/admin/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ username, password })
+});
 
-      const data = await res.json();
-      if (data.success) {
-        window.location.href = "/admin/dashboard"; // Create this page later
-      } else {
-        document.getElementById("error").innerText = data.message;
+const data = await res.json();
+if (data.success) {
+  // Ensure this redirects to your frontend dashboard page
+  window.location.href = "http://127.0.0.1:5500/admin-dashboard.html";  // Redirect to the frontend dashboard
+} else {
+  document.getElementById("error").innerText = data.message;  // Show error message
+}
+
+      } catch (error) {
+        console.error("Error during login:", error);
+        document.getElementById("error").innerText = "An error occurred. Please try again later.";
       }
     });
   </script>

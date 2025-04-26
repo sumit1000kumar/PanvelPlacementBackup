@@ -13,7 +13,6 @@
 
 
 
-```
 PanvelPlacementBackup
 ├─ admin-dashboard.html
 ├─ admin-job.html
@@ -62,7 +61,9 @@ PanvelPlacementBackup
 │     ├─ 1745323334074.png
 │     ├─ 1745327691993-362516552-resume.pdf
 │     ├─ 1745433117251.png
-│     └─ 1745433178402-984364293-resume.pdf
+│     ├─ 1745433178402-984364293-resume.pdf
+│     ├─ 1745680243022.png
+│     └─ 1745680290647-831520223-resume.pdf
 ├─ backend
 │  ├─ config
 │  │  └─ db.js

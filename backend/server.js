@@ -15,7 +15,12 @@
   app.use(cors({ origin: ["http://localhost:5500", "http://127.0.0.1:5500","http://localhost:5000","http://127.0.0.1:5501"], credentials: true }));
   app.use(express.static(path.join(__dirname, '..')));
 
-  app.use('/assets/uploads', express.static(path.join(__dirname, '../assets/uploads')));
+// Serve static files
+app.use('/assets', express.static(path.join(__dirname, '..', 'assets'))); 
+ // Serve assets from the correct location
+app.use('/assets/uploads', express.static(path.join(__dirname, '..', 'assets', 'uploads')));
+
+  // app.use('/assets/uploads', express.static(path.join(__dirname, 'assets/uploads')));
   // Admin job routes
   const adminJobRoutes = require('./routes/admin-jobRoutes');
   app.use('/admin-jobs', adminJobRoutes);
@@ -31,19 +36,33 @@
   // API Routes (contact)
   app.use('/api', contactRoutes);  // This is for other API routes
 
-  // Route to serve the admin dashboard
-  app.get('/admin/dashboard', (req, res) => {
-      res.sendFile(path.join(__dirname, '..', 'admin-dashboard.html'));
-  });
 
-  const candidatesRoutes = require('./routes/candidatesRoutes');
+
+  app.get('/admin/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'admin-dashboard.html'));  // Adjust path if necessary
+  });
+  
+  
+
+const candidatesRoutes = require('./routes/candidatesRoutes');
 app.use('/candidates', candidatesRoutes);
 
 
-  // Optional: Serve admin login
-  app.get('/admin/login', (req, res) => {
-      res.sendFile(path.join(__dirname, '..', 'admin-login.html'));
-  });
+const adminRoutes = require('./routes/adminRoutes');
+app.use('/admin', adminRoutes);
+ // This will handle POST /admin/login
+
+
+ app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // Example login check
+  if (username === 'admin' && password === 'secure123') {
+    res.json({ success: true });
+  } else {
+    res.json({ success: false, message: 'Invalid username or password' });
+  }
+});
 
   // Start the server
   const PORT = process.env.PORT || 5000;
