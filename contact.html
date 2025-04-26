@@ -64,6 +64,7 @@
         .contact-info {
             flex: 1;
             min-width: 300px;
+            max-height: fit-content;
             background: linear-gradient(135deg, #3498db, #2ecc71);
             padding: 40px;
             color: white;
@@ -143,7 +144,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            background: linear-gradient(to right, #e74c3c, #ea0857, #de007a, #be00a3, #7c10cb);
             color: white;
             border: none;
             padding: 15px 35px;
@@ -224,26 +225,27 @@
         <!-- navbar starts -->
         <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo" id="navbarLogo"></a>
+                <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg"
+                        alt="Logo" id="navbarLogo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span><i class="fa-solid fa-bars-staggered"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">Jobs</a>
+                            <a class="nav-link" href="/jobs.html">Jobs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+                            <a class="nav-link" href="/index.html#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/testimonials.html">Testimonials</a>
+                            <a class="nav-link" href="/index.html#testimonialSection">Testimonials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contact.html">Contact</a>
                         </li>
                     </ul>
-                    <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
+                    <button class="btn navBtn"><a href="tel:+918425050976">Reach Out</a></button>
                 </div>
             </div>
         </nav>
@@ -312,6 +314,114 @@
             </div>
         </div>
     </section>
+
+    
+    <footer>
+        <div class="footContainer">
+            <div class="footcol">
+                <h3>About Panvel Placement</h3>
+                <p><a href="https://www.panvelplacement.in"
+                        style="text-decoration: none; color: var(--secondary-color4);">
+                        Panvel Placement</a> connects talented professionals with top employers across Navi Mumbai.
+                    From entry-level roles to leadership positions, we empower you to take the next step in your career.
+                </p>
+            </div>
+
+            <div class="footcol">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="/jobs.html">Browse Jobs</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Career Advice</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Insights & News</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">FAQs</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="contact.html">Get Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footcol">
+                <h3>Popular Roles</h3>
+                <ul>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">IT & Software</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Accounting & Finance</a>
+                    </li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">HR & Admin</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Design & Creative</a></li>
+                </ul>
+            </div>
+
+            <div class="footcol">
+                <h3>Stay Connected</h3>
+                <div class="footsocial">
+                    <ul>
+                        <li><a href="https://www.facebook.com/PanvelPlacement" class="fa-brands fa-square-facebook"></a>
+                        </li>
+                        <li><a href="https://twitter.com/PanvelPlacement" class="fa-brands fa-x-twitter"></a></li>
+                        <li><a href="https://www.linkedin.com/company/panvel-placement"
+                                class="fa-brands fa-linkedin"></a></li>
+                        <li><a href="https://www.instagram.com/panvelplacement" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+                <p><i class="fa-regular fa-envelope"></i>
+                    <a href="mailto:akshaykolii477@gmail.com" id="footmail">support@panvelplacement.in</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> Panvel Placement. All rights reserved.</p>
+            <br>
+            Developed by <span class="developers gradient-text">Sumit Kumar </span>
+            <a href="mailto:sumitkumar9012004@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> ,
+            <span class="developers gradient-text">Abhishek Solanki </span>
+            <a href="mailto:solankiwork003@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> & <span
+                class="developers gradient-text">Ajay Prasad </span>
+            <a href="mailto:ajjjuupd18@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+
+        <script>
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        </script>
+
+    </footer>
+
+    <script>
+        // JavaScript to update the year dynamically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+
+
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top"><i class="fa-solid fa-angles-up"></i></a>
+    <!-- <a href="#" class="AiChatBot" aria-label="Chat with AI to find your related study stuff and info quickly">
+              </a> -->
+    <a href="https://wa.link/n4jirl" target="_blank" class="whatsappButton"
+        aria-label="Join our WhatsApp Group">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Chatbot Icon -->
+    <div id="chatbot-container">
+        <button id="chatbot-icon">
+            <i class="fa-regular fa-comment" style="color: #ffffff;"></i></button>
+        <!-- Chatbot Dialog -->
+        <div id="chatbot-dialog">
+            <div id="chatbot-header">
+                <span>Exam Chatbot</span>
+                <button id="chatbot-close">✖</button>
+            </div>
+            <div id="chatbot-body">
+                <div id="chatbot-messages"></div>
+            </div>
+            <div id="chatbot-input-area">
+                <div id="autocomplete-suggestions"></div>
+                <input type="text" id="chatbot-input" placeholder="Type your message..." />
+                <button id="chatbot-send">Send</button>
+            </div>
+            <div id="loading-spinner" style="display: none;">⏳ Loading...</div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -389,9 +499,21 @@
             });
         });
         </script>
-         <script defer src="/assets/js/bootstrap.bundle.min.js"></script>
 
-         <script src="/assets/js/heroSection.js"></script>
+    <!-- bootstrap js -->
+    <script defer src="/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- bottom to top js -->
+    <script src="/assets/js/bottomToTop.js"></script>
+
+    <!-- chatbot js -->
+    <script src="/assets/js/chatbot.js"></script>
+
+    <script src="/assets/js/hamburger.js"></script>
+
+</body>
+
+</html>
         
 </body>
 </html>
