@@ -106,7 +106,7 @@
     </form>
   </div>
 
-  <script>
+  <!-- <script>
     const form = document.getElementById('applicationForm');
     const params = new URLSearchParams(window.location.search);
     const jobId = params.get('jobId');
@@ -137,7 +137,40 @@
 
    
 
+  </script> -->
+  
+
+  <script>
+    const form = document.getElementById('applicationForm');
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('jobId');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(form);
+      formData.append('jobId', jobId);
+  
+      try {
+        const response = await fetch('https://panvel-placement-backend.onrender.com/api/apply', {  // <<----- updated endpoint to the production URL
+          method: 'POST',
+          body: formData,
+        });
+  
+        const result = await response.json();  // <<----- changed to `.json()` because your backend should return JSON
+        if (response.ok) {
+          alert('Application submitted successfully!');
+          form.reset(); // optional: clear form after success
+        } else {
+          alert('Error: ' + (result.message || 'Something went wrong'));
+        }
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        alert('Error submitting application');
+      }
+    });
   </script>
   
+
 </body>
 </html>

@@ -268,51 +268,48 @@
 
     async function fetchCandidates() {
       try {
-        const res = await fetch("http://localhost:5000/candidates/applicants");
+        const res = await fetch("https://panvel-placement-backend.onrender.com/candidates/applicants");
         const data = await res.json();
         const tableBody = document.getElementById("candidatesTableBody");
-
+  
         tableBody.innerHTML = ""; // Clear the table before filling
-
+  
         data.applicants.forEach((app) => {
           const row = document.createElement("tr");
-
-      row.innerHTML = `
-        <td>${app.jobId || "Not Available"}</td>  <!-- Show jobId if available -->
-        <td>${app.name}</td>
-        <td>${app.college}</td>
-        <td>${app.course}</td>
-        <td>${app.email}</td>
-        <td>${app.phone}</td>
-       <td><a href="/assets${app.resumePath}" target="_blank">View Resume</a></td>
-
-
-        <td>${app.status || "Pending"}</td>
-        <td>
-          <select onchange="updateStatus('${app._id}', this.value)">
-            <option value="">--Set--</option>
-            <option value="Selected">Selected</option>
-            <option value="Rejected">Rejected</option>
-          </select>
-        </td>
-      `;
-
-      tableBody.appendChild(row);
-    });
-  } catch (err) {
-    console.error("Error fetching candidates:", err);
-  }
-}
-
-
+  
+          row.innerHTML = `
+            <td>${app.jobId || "Not Available"}</td>  <!-- Show jobId if available -->
+            <td>${app.name}</td>
+            <td>${app.college}</td>
+            <td>${app.course}</td>
+            <td>${app.email}</td>
+            <td>${app.phone}</td>
+            <td><a href="/assets${app.resumePath}" target="_blank">View Resume</a></td>
+            <td>${app.status || "Pending"}</td>
+            <td>
+              <select onchange="updateStatus('${app._id}', this.value)">
+                <option value="">--Set--</option>
+                <option value="Selected">Selected</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </td>
+          `;
+  
+          tableBody.appendChild(row);
+        });
+      } catch (err) {
+        console.error("Error fetching candidates:", err);
+      }
+    }
+  
     async function updateStatus(id, status) {
       try {
-        const res = await fetch(`http://localhost:5000/candidates/update-status/${id}`, {
+        const res = await fetch(`https://panvel-placement-backend.onrender.com/candidates/update-status/${id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ status })
         });
-
+  
         const result = await res.json();
         if (result.success) {
           alert("Status updated!");
@@ -324,7 +321,7 @@
         console.error("Error updating status:", err);
       }
     }
-
+  
     // Toggle sidebar on hamburger click
     document.addEventListener("DOMContentLoaded", function() {
       fetchCandidates();
@@ -358,51 +355,50 @@
         }
       });
     });
-
-   
-  document.getElementById('exportBtn').addEventListener('click', exportCandidatesToExcel);
-
-function exportCandidatesToExcel() {
-  const table = document.getElementById('candidatesTableBody');
-  const rows = Array.from(table.querySelectorAll('tr'));
   
-  const data = rows.map(row => {
-    const cells = row.querySelectorAll('td');
-    return {
-      "Job ID": cells[0]?.innerText,
-      "Name": cells[1]?.innerText,
-      "College": cells[2]?.innerText,
-      "Course": cells[3]?.innerText,
-      "Email": cells[4]?.innerText,
-      "Phone": cells[5]?.innerText,
-      "Resume Link": cells[6]?.innerText,
-      "Status": cells[7]?.innerText
-    };
-  });
-
-  const worksheet = XLSX.utils.json_to_sheet(data);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, "Candidates");
-
-  XLSX.writeFile(workbook, "enrolled-candidates.xlsx");
-}
-
-
-document.getElementById('searchInput').addEventListener('input', function () {
-  const filter = this.value.toLowerCase();
-  const rows = document.querySelectorAll('#candidatesTableBody tr');
-
-  rows.forEach(row => {
-    const jobId = row.children[0]?.innerText.toLowerCase();
-    const name = row.children[1]?.innerText.toLowerCase();
-    if (jobId.includes(filter) || name.includes(filter)) {
-      row.style.display = '';
-    } else {
-      row.style.display = 'none';
+    document.getElementById('exportBtn').addEventListener('click', exportCandidatesToExcel);
+  
+    function exportCandidatesToExcel() {
+      const table = document.getElementById('candidatesTableBody');
+      const rows = Array.from(table.querySelectorAll('tr'));
+      
+      const data = rows.map(row => {
+        const cells = row.querySelectorAll('td');
+        return {
+          "Job ID": cells[0]?.innerText,
+          "Name": cells[1]?.innerText,
+          "College": cells[2]?.innerText,
+          "Course": cells[3]?.innerText,
+          "Email": cells[4]?.innerText,
+          "Phone": cells[5]?.innerText,
+          "Resume Link": cells[6]?.innerText,
+          "Status": cells[7]?.innerText
+        };
+      });
+  
+      const worksheet = XLSX.utils.json_to_sheet(data);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Candidates");
+  
+      XLSX.writeFile(workbook, "enrolled-candidates.xlsx");
     }
-  });
-});
-
+  
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#candidatesTableBody tr');
+  
+      rows.forEach(row => {
+        const jobId = row.children[0]?.innerText.toLowerCase();
+        const name = row.children[1]?.innerText.toLowerCase();
+        if (jobId.includes(filter) || name.includes(filter)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  
   </script>
+  
 </body>
 </html>

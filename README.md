@@ -27,6 +27,7 @@ PanvelPlacementBackup
 │  │  ├─ candidates.css
 │  │  ├─ jobs.css
 │  │  ├─ main.min.per.css
+│  │  ├─ registration.css
 │  │  ├─ resp.css
 │  │  └─ style.css
 │  ├─ img
@@ -63,8 +64,15 @@ PanvelPlacementBackup
 │     ├─ 1745433117251.png
 │     ├─ 1745433178402-984364293-resume.pdf
 │     ├─ 1745680243022.png
-│     └─ 1745680290647-831520223-resume.pdf
+│     ├─ 1745680290647-831520223-resume.pdf
+│     ├─ 1745693850314.jpg
+│     ├─ 1745693968161.png
+│     ├─ 1745694174864.jpg
+│     ├─ 1745694441242-170184031-resume.pdf
+│     ├─ 1745694630762.png
+│     └─ 1745694721179-930940715-resume.pdf
 ├─ backend
+│  ├─ .env
 │  ├─ config
 │  │  └─ db.js
 │  ├─ controllers
@@ -88,7 +96,6 @@ PanvelPlacementBackup
 │  └─ server.js
 ├─ candidates.html
 ├─ contact.html
-├─ d.html
 ├─ index.html
 ├─ jobs.html
 ├─ README.md
