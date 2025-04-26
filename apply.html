@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apply Now</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,8 +24,8 @@
 
     h2 {
       text-align: center;
-      color: #333;
       margin-bottom: 30px;
+      text-transform: uppercase;
     }
 
     form {
@@ -54,7 +55,7 @@
     }
 
     button {
-      background-color: #007bff;
+      background-color: var(--hover-color);
       color: white;
       padding: 12px;
       font-size: 16px;
@@ -80,7 +81,7 @@
   <div class="container">
 
 
-    <h2>Apply Now</h2>
+    <h2 class="gradient-text">Apply Now</h2>
     <form id="applicationForm">
       <label for="name">Full Name</label>
       <input type="text" name="name" id="name" placeholder="Your Name" required />
@@ -99,7 +100,7 @@
 
       <label for="resume">Upload Resume (PDF)</label>
       <input type="file" name="resume" id="resume" accept=".pdf" required />
-      <div class="note">Only PDF files are allowed</div>
+      <div class="note">*Only PDF files are allowed</div>
 
       <button type="submit">Submit Application</button>
     </form>

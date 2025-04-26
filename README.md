@@ -65,7 +65,6 @@ PanvelPlacementBackup
 │     ├─ 1745680243022.png
 │     └─ 1745680290647-831520223-resume.pdf
 ├─ backend
-│  ├─ .env
 │  ├─ config
 │  │  └─ db.js
 │  ├─ controllers
