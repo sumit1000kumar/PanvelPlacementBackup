@@ -13,7 +13,6 @@
 
 
 
-```
 PanvelPlacementBackup
 ├─ admin-dashboard.html
 ├─ admin-job.html
@@ -23,13 +22,16 @@ PanvelPlacementBackup
 │  ├─ css
 │  │  ├─ admin-dashboard.css
 │  │  ├─ admin-jobs.css
+│  │  ├─ admin-login.css
 │  │  ├─ bootstrap.min.css
 │  │  ├─ candidates.css
 │  │  ├─ jobs.css
+│  │  ├─ main.min.per.css
 │  │  ├─ resp.css
 │  │  └─ style.css
 │  ├─ img
 │  │  ├─ bgTrial1.webp
+│  │  ├─ dummyJobTrial.jpg
 │  │  └─ logo
 │  │     ├─ FaviconLogo.jpg
 │  │     ├─ navbarLogo.png
@@ -38,7 +40,13 @@ PanvelPlacementBackup
 │  ├─ js
 │  │  ├─ admin-jobs.js
 │  │  ├─ bootstrap.bundle.min.js
+│  │  ├─ bottomToTop.js
+│  │  ├─ chatbot.js
+│  │  ├─ clientSectionCounter.js
+│  │  ├─ hamburger.js
 │  │  ├─ heroSection.js
+│  │  ├─ indexContactForm.js
+│  │  ├─ indexJobs.js
 │  │  └─ jobs.js
 │  └─ uploads
 │     ├─ 1745251824855.png
@@ -47,7 +55,15 @@ PanvelPlacementBackup
 │     ├─ 1745260610521.jpg
 │     ├─ 1745260621900.png
 │     ├─ 1745260655479.jpg
-│     └─ 1745321475944-533139480-resume.pdf
+│     ├─ 1745321475944-533139480-resume.pdf
+│     ├─ 1745322974477.png
+│     ├─ 1745323142343.jpg
+│     ├─ 1745323334074.png
+│     ├─ 1745327691993-362516552-resume.pdf
+│     ├─ 1745433117251.png
+│     ├─ 1745433178402-984364293-resume.pdf
+│     ├─ 1745680243022.png
+│     └─ 1745680290647-831520223-resume.pdf
 ├─ backend
 │  ├─ .env
 │  ├─ config
@@ -74,6 +90,7 @@ PanvelPlacementBackup
 ├─ candidates.html
 ├─ contact.html
 ├─ d.html
+├─ index.html
 ├─ jobs.html
 ├─ README.md
 ├─ registration.html
