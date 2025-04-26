@@ -141,18 +141,19 @@
         <p id="totalCandidates">0</p>
       </div>
       <div class="card">
-        <h3>Total Candidates with Jobs</h3>
+        <h3>Total Candidates Selected</h3>
         <p id="candidatesWithJobs">0</p>
       </div>
       <div class="card">
-        <h3>Other Stats</h3>
+        <h3>Total Candidates Pending </h3>
         <p id="otherStats">0</p>
       </div>
     </div>
   </div>
 
-  <script src="js/admin-dashboard.js"></script>
+  <!-- <script src="js/admin-dashboard.js"></script> -->
   <!-- Added script for hamburger functionality -->
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const menuToggle = document.getElementById('menuToggle');
@@ -180,6 +181,40 @@
         }
       });
     });
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('http://localhost:5000/admin-jobs/jobs')
+        .then(response => response.json())
+        .then(data => {
+          const totalJobs = data.length;
+          document.getElementById('totalJobs').innerText = totalJobs;
+        })
+        .catch(error => {
+          console.error('Error fetching total jobs:', error);
+          document.getElementById('totalJobs').innerText = 'Error';
+        });
+  
+
+     // Fetch candidates data and calculate total, selected, and pending
+     // Fetch candidates data to calculate the total and status counts
+  fetch('http://localhost:5000/candidates/applicants')
+    .then(response => response.json())
+    .then(data => {
+      const totalCandidates = data.applicants.length;
+      const selectedCandidates = data.applicants.filter(app => app.status === 'Selected').length;
+      const pendingCandidates = data.applicants.filter(app => app.status === 'Pending').length;
+
+      // Update the dashboard with the fetched data
+      document.getElementById('totalCandidates').innerText = totalCandidates;
+      document.getElementById('candidatesWithJobs').innerText = selectedCandidates;
+      document.getElementById('otherStats').innerText = pendingCandidates;
+    })
+    .catch(error => {
+      console.error('Error fetching candidates data:', error);
+      document.getElementById('totalCandidates').innerText = 'Error';
+      document.getElementById('candidatesWithJobs').innerText = 'Error';
+      document.getElementById('otherStats').innerText = 'Error';
+    });
+});
   </script>
 </body>
 </html>
