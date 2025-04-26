@@ -5,56 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Active Jobs: Job Portal ViMEET</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/public/css/style.css"> -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/jobs.css">
+    <!-- <link rel="stylesheet" href="/assets/css/resp.css"> -->
   <!-- font awesome cdn -->
   <script src="https://kit.fontawesome.com/7ab50d13be.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 
-    <header>
-        <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg bg-white shadow-sm w-100">
-        <div class="container">
-          <a class="navbar-brand" href="index.html"><img
-              src="https://imgs.search.brave.com/r3HVQaxdgGbb4FZyRfO-wg-2ixWv8lq8GwGnnzLcbis/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzAwLzg2LzE4/LzM2MF9GXzIwMDg2/MTgxMl9wMTNHRW92/ZElVVDlscE5PbjVM/MHppRmNSWnF4dkhI/YS5qcGc"
-              alt="logo" height="50"></a>
-          <button class="navbar-toggler" style="border: none;" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span><i class="fa-solid fa-bars-staggered"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav col-lg-10 justify-content-center gap-3">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Vacancies
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="jobs.html">Jobs</a></li>
-                  <li><a class="dropdown-item" href="internships.html">Internships</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="jobs.html">Upcoming Drives</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Alumini</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li>
-            </ul>
-            <div class="btns d-flex gap-3 col-lg-2">
-              <button class="btn1 btn" type="button"><a href="login.html">Login</a></button>
-              <button class="btn2 btn" type="button"><a href="register.html">Register</a></button>
+  <header>
+    <!-- topbar starts -->
+    <div class="topbar container-fluid p-2">
+        <div class="row">
+            <div class="topbarContent col-lg-10 col-sm-9 col-9">
+                <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
+                    Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
+                    successful placements & counting — be our next success story! | 📍 Job listings updated in real
+                    time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
+                    Panvel!</marquee>
             </div>
-          </div>
-      </nav>
+            <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
+                <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- topbar ends -->
 
-    </header>
+    <!-- navbar starts -->
+    <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo" id="navbarLogo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span><i class="fa-solid fa-bars-staggered"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/testimonial.html">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ends -->
+</header>
 
     <div class="container mt-5">
         <h1 class="text-center mb-4 jobHeading">"Find Your Next Opportunity!"</h1>
@@ -126,6 +136,7 @@
 <!-- Example Modal Structure -->
 <!-- Modal for Job Details -->
 <!-- Modal for Job Details -->
+
 <div id="jobDetailsModal" style="display: none;">
     <div class="modal-content">
       <span onclick="closeJobDetails()" class="close-btn">&times;</span>
