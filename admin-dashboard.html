@@ -182,7 +182,7 @@
       });
     });
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('http://localhost:5000/admin-jobs/jobs')
+      fetch('https://panvel-placement-backend.onrender.com/admin-jobs/jobs')
         .then(response => response.json())
         .then(data => {
           const totalJobs = data.length;
@@ -196,7 +196,7 @@
 
      // Fetch candidates data and calculate total, selected, and pending
      // Fetch candidates data to calculate the total and status counts
-  fetch('http://localhost:5000/candidates/applicants')
+  fetch('https://panvel-placement-backend.onrender.com/candidates/applicants')
     .then(response => response.json())
     .then(data => {
       const totalCandidates = data.applicants.length;

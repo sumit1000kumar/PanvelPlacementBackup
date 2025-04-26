@@ -1,24 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/upload');
- // Import the Multer configuration
-const Application = require('../models/applyModel'); // Mongoose model for applications
+const Application = require('../models/applyModel');
 
-// Handle form submission and file upload
 router.post('/apply', upload.single('resume'), async (req, res) => {
-  console.log('Received body:', req.body);   // Debugging line
-  console.log('Received file:', req.file);   // Debugging line
+  console.log('Received body:', req.body);
+  console.log('Received file:', req.file);
 
   try {
-    // Extract form data from req.body
     const { name, college, course, email, phone, jobId } = req.body;
 
-    // Get the file path from the uploaded file
-    const resumePath = req.file ? '/uploads/' + req.file.filename : '';
+    if (!req.file) {
+      return res.status(400).json({ message: 'Resume file is required' });
+    }
 
-    // Create a new application document
+    const resumePath = '/uploads/' + req.file.filename;
+
     const newApplication = new Application({
-        jobId,
+      jobId,
       name,
       college,
       course,
@@ -27,14 +26,12 @@ router.post('/apply', upload.single('resume'), async (req, res) => {
       resumePath
     });
 
-    // Save the application to the database
     await newApplication.save();
 
-    // Send a response after successful submission
-    res.status(200).send('Application submitted successfully!');
+    res.status(200).json({ message: 'Application submitted successfully!' }); // Changed to JSON
   } catch (err) {
     console.error('Error:', err);
-    res.status(500).send('Error submitting application');
+    res.status(500).json({ message: 'Error submitting application' }); // Changed to JSON
   }
 });
 
