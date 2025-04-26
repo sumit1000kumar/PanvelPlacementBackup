@@ -590,9 +590,9 @@
                             <h5 class="mb-3">Office Information</h5>
                             <p><strong>Address:</strong><br>SHOP NO-18, NK HERITAGE, Railway Station, Forest Colony,
                                 Panvel, Navi Mumbai, Maharashtra 410206</p>
-                            <p><strong>Phone:</strong> <a href="tel:08425050976">084250 50976</a></p>
+                            <p><strong>Phone:</strong> <a href="tel:08425050976">+91 84250 50976</a></p>
                             <p><strong>Email:</strong> <a
-                                    href="mailto:info@panvelplacement.com">info@panvelplacement.com</a></p>
+                                    href="mailto:info@panvelplacement.in">info@panvelplacement.inn</a></p>
                             <p><strong>Working Hours:</strong> Mon - Sat: 9 AM - 8:30 PM</p>
 
                             <div class="review-box mt-4">
@@ -611,32 +611,29 @@
                     <!-- Contact Form -->
                     <div class="col-md-7">
                         <div class="contact-form">
-                            <form>
+                            <h3>Send us a message</h3>
+                            <form id="contactForm">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter your full name"
-                                        required>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter your email"
-                                        required>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="subject" class="form-label">Phone</label>
-                                    <input type="text" class="form-control" id="phone"
-                                        placeholder="Enter your phone number" required>
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" rows="3"
-                                        placeholder="Type your message..." required></textarea>
+                                    <textarea class="form-control" id="message" rows="3" placeholder="Type your message..." required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                <div class="form-message" id="formMessage" style="display:none; margin-top: 10px;"></div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -751,9 +748,6 @@
     </div>
 
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script> -->
 
     <!-- bootstrap js -->
     <script defer src="/assets/js/bootstrap.bundle.min.js"></script>
@@ -772,7 +766,7 @@
     <script src="/assets/js/clientSectionCounter.js"></script>
 
     <script src="/assets/js/hamburger.js"></script>
-
+    <script src="/assets/js/indexContactForm.js"></script>
 </body>
 
 </html>
