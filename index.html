@@ -52,6 +52,10 @@
         }
         </script>
 
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
     <!-- css -->
     <link rel="stylesheet" href="/assets/css/main.min.per.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -74,21 +78,6 @@
 </head>
 
 <body>
-    <!-- <header>
-        <nav>
-            <img src="" alt="logo" id="logo">
-            <ul>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#">Successful Stories</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <button class="btn">
-                <i class="fa-solid fa-user"></i> Get Job
-            </button>
-        </nav>
-    </header> -->
-
     <header>
         <!-- topbar starts -->
         <div class="topbar container-fluid p-2">
@@ -125,10 +114,10 @@
                             <a class="nav-link" href="jobs.html">Jobs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+                            <a class="nav-link" href="#serviceSection">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/testimonial.html">Testimonials</a>
+                            <a class="nav-link" href="#testimonialSection">Testimonials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contact.html">Contact</a>
@@ -169,7 +158,7 @@
                             Join <span class="highlight">Panvel's trusted platform</span> for fresh jobs, student
                             careers, and <span class="highlight">verified recruiter</span> listings.
                         </p>
-                        <a href="#jobs" class="btn btn-primary cta-button">Start Exploring Now →</a>
+                        <a href="/jobs.html" class="btn cta-button">Start Exploring Now →</a>
 
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
                             <div class="badge-item">✅ Verified by TPOs</div>
@@ -235,40 +224,54 @@
                     </div>
                 </div>
 
-                <div class="stats-container gradient-border text-center">
+                <div class="stats-container ">
                     <div class="stat-item">
-                        <!-- <div class="rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div> -->
-                        <div class="stat-number" data-target="4.8">0</div>
-                        <div class="stat-label">Google Rating</div>
+                        <div class="icon-box">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="text-box">
+                            <div class="stat-number gradient-text" data-target="4.8" data-format="normal">0</div>
+                            <div class="stat-label">Google Rating</div>
+                        </div>
                     </div>
 
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="5000">0</div>
-                        <div class="stat-label">Mentees Trained</div>
-                    </div>
+                    <div class="divider"></div>
 
                     <div class="stat-item">
-                        <div class="stat-number" data-target="100">0</div>
-                        <div class="stat-label"> Hiring Partners</div>
+                        <div class="icon-box">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="text-box">
+                            <div class="stat-number gradient-text" data-target="50000" data-format="K">0</div>
+                            <div class="stat-label ">Mentees Trained</div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="stat-item">
+                        <div class="icon-box">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="text-box">
+                            <div class="stat-number gradient-text" data-target="500" data-format="plus">0</div>
+                            <div class="stat-label">Hiring Partner</div>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
         </section>
 
         <section class="jobs py-3">
             <div class="container">
-                <div class=" section-title">
+                <div class="section-title">
                     Explore Job Opportunities
                 </div>
 
                 <button class="btn btn-primary toggle-filters" onclick="toggleFilters()">
-                    <i class="fas fa-filter"></i> Toggle Filters
+                    <i class="fas fa-filter"></i> Filters
                 </button>
 
                 <div class="row">
@@ -345,7 +348,7 @@
         <section id="call-to-action" class="call-to-action">
             <div class="container" data-aos="zoom-out">
                 <div class="process-list">
-                    <h3>Ready to Land Your Dream Job with Us?</h3>
+                    <h3 class="section-title">Ready to Land Your Dream Job with Us?</h3>
                     <p>
                         Start your career journey with Panvel Placement in just a few easy steps. No more confusion or
                         stress — follow the process and unlock the best opportunities waiting for you.
@@ -368,220 +371,408 @@
                             <div class="step-counter"><i class="fa-solid fa-check-to-slot"></i></div>
                             <div class="step-name">Apply & Track</div>
                         </div>
-                        
+
                     </div>
                 </div>
 
             </div>
         </section>
 
+        <!-- testimonials section -->
+        <div class="testimonialSection" id="testimonialSection">
+            <div >
+                <h1 class="section-title">Success Stories</h1>
+            </div>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="container-fluid  d-flex flex-wrap justify-content-center gap-3 p-3">
+                            <!-- Testimonial 1 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                            class="img-fluid rounded-start" alt="Rahul Sharma">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Rahul Sharma</h5>
+                                            <p class="card-text">Thanks to Panvel Placement, I found a great opportunity
+                                                in a reputed IT firm in Navi Mumbai. The process was smooth, and the
+                                                team was extremely supportive throughout.</p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as Software
+                                                    Developer | April 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 2 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                            class="img-fluid rounded-start" alt="Pooja Nair">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pooja Nair</h5>
+                                            <p class="card-text">I recently relocated to Panvel and was worried about
+                                                job options. Within a week, Panvel Placement connected me with an HR
+                                                executive role. Truly grateful for their quick and efficient service!
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as HR
+                                                    Executive | March 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 3 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/men/65.jpg"
+                                            class="img-fluid rounded-start" alt="Amit Deshmukh">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Amit Deshmukh</h5>
+                                            <p class="card-text">Panvel Placement helped me shift from a small firm to a
+                                                well-known logistics company. The team understood my profile perfectly
+                                                and guided me at every step. Highly recommend them!</p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as Logistics
+                                                    Manager | February 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div
+                            class="container-fluid testimonialSection d-flex flex-wrap justify-content-center gap-3 p-3">
+                            <!-- Testimonial 4 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/men/81.jpg"
+                                            class="img-fluid rounded-start" alt="Karan Patil">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Karan Patil</h5>
+                                            <p class="card-text">After months of searching, I finally got a breakthrough
+                                                in a finance firm in CBD Belapur with the help of Panvel Placement.
+                                                Their local connections really make a difference!</p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as Accounts
+                                                    Executive | March 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 5 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/women/29.jpg"
+                                            class="img-fluid rounded-start" alt="Sneha Kulkarni">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sneha Kulkarni</h5>
+                                            <p class="card-text">Being a fresh graduate from Pune, I had no clue about
+                                                the job scene in Mumbai. Panvel Placement helped me land my first job
+                                                in a digital marketing agency within two weeks!</p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as Marketing
+                                                    Associate | January 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 6 -->
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="https://randomuser.me/api/portraits/men/41.jpg"
+                                            class="img-fluid rounded-start" alt="Manoj Shetty">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Manoj Shetty</h5>
+                                            <p class="card-text">I was working freelance as a graphic designer but
+                                                wanted something more stable. With the help of Panvel Placement, I got
+                                                hired by a design firm in Nerul. Highly recommend their personalized
+                                                approach!</p>
+                                            <p class="card-text"><small class="text-body-secondary">Placed as Graphic
+                                                    Designer | February 2025</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more slides if needed -->
+
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Services Section Start -->
+        <section id="services"
+            style="background-color: var(--primary-color); padding: 30px 0 50px 0; color: white; position: relative; overflow: hidden;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 50px; font-size: 36px;" class="section-title">What We Offer</h2>
+                <div class="services-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>Campus Recruitment</h3>
+                        <p>Connecting top recruiters with talented graduates through organized campus drives and
+                            interviews.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-briefcase"></i></div>
+                        <h3>Job Fairs & Placement Drives</h3>
+                        <p>Hosting large-scale job fairs, exclusive walk-ins, and placement drives to bridge students
+                            and employers.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>Skill Development Training</h3>
+                        <p>Providing soft skills, interview preparation, resume building, and corporate etiquette
+                            training sessions.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Corporate Partnerships</h3>
+                        <p>Building strong tie-ups with leading companies to ensure exclusive placement opportunities
+                            for candidates.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Services Section End -->
+
+
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="text-center mb-3">
+                    <h2 class="fw-bold section-title">Get in Touch</h2>
+                    <p class="text-muted">We would love to hear from you!</p>
+                </div>
+                <div class="row g-4">
+
+                    <!-- Contact Info -->
+                    <div class="col-md-5">
+                        <div class="contact-info">
+                            <h5 class="mb-3">Office Information</h5>
+                            <p><strong>Address:</strong><br>SHOP NO-18, NK HERITAGE, Railway Station, Forest Colony,
+                                Panvel, Navi Mumbai, Maharashtra 410206</p>
+                            <p><strong>Phone:</strong> <a href="tel:08425050976">084250 50976</a></p>
+                            <p><strong>Email:</strong> <a
+                                    href="mailto:info@panvelplacement.com">info@panvelplacement.com</a></p>
+                            <p><strong>Working Hours:</strong> Mon - Sat: 9 AM - 8:30 PM</p>
+
+                            <div class="review-box mt-4">
+                                <h6 class="mb-1">🌟 PANVEL PLACEMENT, NAVI MUMBAI</h6>
+                                <p class="mb-1">4.9 ⭐ | 1,355 Google reviews</p>
+                                <small class="text-muted">Consultant in Navi Mumbai, Maharashtra</small>
+                                <div class="mt-2">
+                                    <a href="https://www.google.com/maps?sca_esv=316cc9eb62be92bf&sxsrf=AHTn8zqSVg9CIGC7u3Ar6qKmowwmeRDvhQ:1745665877936&iflsig=ACkRmUkAAAAAaAzNZbu25QK-aMCAAUfqnLNeAfi5Z-1s&gs_lp=Egdnd3Mtd2l6IgpwYW52ZWwgcGxhKgIIADIKECMYgAQYJxiKBTILEC4YgAQYxwEYrwEyBRAAGIAEMgUQLhiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIOEC4YgAQYxwEYjgUYrwEyBRAAGIAEMgUQABiABEibF1AAWOUNcAB4AJABAJgBjwagAd8dqgELMi0yLjAuNC4xLjG4AQPIAQD4AQGYAgigArIfwgIEECMYJ8ICCxAAGIAEGLEDGIMBwgIOEC4YgAQYsQMYgwEYigXCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgILEC4YgAQYsQMYgwHCAhAQLhiABBgCGMcBGMsBGK8BwgIKEC4YgAQYAhjLAcICChAAGIAEGAIYywHCAhEQLhiABBjHARiYBRiZBRivAZgDAJIHCzItMi4wLjQuMS4xoAe1a7IHCzItMi4wLjQuMS4xuAeyHw&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KeHhB3bM6ec7MUcyyyfXINuR&daddr=SHOP+NO-18,+NK+HERITAGE,+Railway+Station,+Forest+Colony,+Panvel,+Navi+Mumbai,+Maharashtra+410206"
+                                        class="btn btn-sm btn-outline-dark me-2">Directions</a>
+                                    <a href="tel:+918425050976" class="btn btn-sm btn-outline-success">Call</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="col-md-7">
+                        <div class="contact-form">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your full name"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Phone</label>
+                                    <input type="text" class="form-control" id="phone"
+                                        placeholder="Enter your phone number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="3"
+                                        placeholder="Type your message..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
+        <div class="footContainer">
+            <div class="footcol">
+                <h3>About Panvel Placement</h3>
+                <p><a href="https://www.panvelplacement.in"
+                        style="text-decoration: none; color: var(--secondary-color4);">
+                        Panvel Placement</a> connects talented professionals with top employers across Navi Mumbai.
+                    From entry-level roles to leadership positions, we empower you to take the next step in your career.
+                </p>
+            </div>
+
+            <div class="footcol">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="/jobs.html">Browse Jobs</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Career Advice</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Insights & News</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">FAQs</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="contact.html">Get Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footcol">
+                <h3>Popular Roles</h3>
+                <ul>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">IT & Software</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Accounting & Finance</a>
+                    </li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">HR & Admin</a></li>
+                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Design & Creative</a></li>
+                </ul>
+            </div>
+
+            <div class="footcol">
+                <h3>Stay Connected</h3>
+                <div class="footsocial">
+                    <ul>
+                        <li><a href="https://www.facebook.com/PanvelPlacement" class="fa-brands fa-square-facebook"></a>
+                        </li>
+                        <li><a href="https://twitter.com/PanvelPlacement" class="fa-brands fa-x-twitter"></a></li>
+                        <li><a href="https://www.linkedin.com/company/panvel-placement"
+                                class="fa-brands fa-linkedin"></a></li>
+                        <li><a href="https://www.instagram.com/panvelplacement" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+                <p><i class="fa-regular fa-envelope"></i>
+                    <a href="mailto:akshaykolii477@gmail.com" id="footmail">support@panvelplacement.in</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> Panvel Placement. All rights reserved.</p>
+            <br>
+            Developed by <span class="developers">Sumit Kumar </span>
+            <a href="mailto:sumitkumar9012004@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> ,
+            <span class="developers">Abhishek Solanki </span>
+            <a href="mailto:solankiwork003@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a> & <span
+                class="developers">Ajay Prasad </span>
+            <a href="mailto:ajjjuupd18@gmail.com" id="footmail"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+
+        <script>
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        </script>
 
     </footer>
+
+    <script>
+        // JavaScript to update the year dynamically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+
+
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top"><i class="fa-solid fa-angles-up"></i></a>
+    <!-- <a href="#" class="AiChatBot" aria-label="Chat with AI to find your related study stuff and info quickly">
+              </a> -->
+    <a href="https://chat.whatsapp.com/Le6oX6uH8ym7RW5MYTsYej" target="_blank" class="whatsappButton"
+        aria-label="Join our WhatsApp Group">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Chatbot Icon -->
+    <div id="chatbot-container">
+        <button id="chatbot-icon">
+            <i class="fa-regular fa-comment" style="color: #ffffff;"></i></button>
+        <!-- Chatbot Dialog -->
+        <div id="chatbot-dialog">
+            <div id="chatbot-header">
+                <span>Exam Chatbot</span>
+                <button id="chatbot-close">✖</button>
+            </div>
+            <div id="chatbot-body">
+                <div id="chatbot-messages"></div>
+            </div>
+            <div id="chatbot-input-area">
+                <div id="autocomplete-suggestions"></div>
+                <input type="text" id="chatbot-input" placeholder="Type your message..." />
+                <button id="chatbot-send">Send</button>
+            </div>
+            <div id="loading-spinner" style="display: none;">⏳ Loading...</div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script> -->
 
     <!-- bootstrap js -->
     <script defer src="/assets/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        // Mock job data
-        const jobs = [
-            {
-                id: 1,
-                title: "Frontend Developer",
-                company: "Tech Solutions Inc.",
-                logo: "/assets/img/dummyJobTrial.jpg  ",
-                location: "Bangalore",
-                salary: "8,00,000 - 12,00,000",
-                cgpa: "7.5",
-                liveKT: "0",
-                experience: "1-3 years",
-                description: "We are looking for a skilled Frontend Developer to join our team. You will be responsible for building user interfaces using React.js and ensuring high performance on mobile and desktop.",
-                applicants: 42,
-                type: "fulltime"
-            },
-            {
-                id: 2,
-                title: "Backend Engineer",
-                company: "Data Systems Ltd.",
-                logo: "dummyJobTrial.jpg",
-                location: "Delhi",
-                salary: "10,00,000 - 15,00,000",
-                cgpa: "8.0",
-                liveKT: "2",
-                experience: "3-5 years",
-                description: "Join our backend team to develop scalable server-side applications. Experience with Node.js and databases is required.",
-                applicants: 28,
-                type: "fulltime"
-            },
-            {
-                id: 3,
-                title: "UI/UX Designer",
-                company: "Creative Minds",
-                logo: "/assets/img/dummyJobTrial.jpg",
-                location: "Mumbai",
-                salary: "6,00,000 - 9,00,000",
-                cgpa: "7.0",
-                liveKT: "1",
-                experience: "1-3 years",
-                description: "We need a creative UI/UX designer to create amazing user experiences for our products. Proficiency in Figma and Adobe XD is required.",
-                applicants: 35,
-                type: "fulltime"
-            },
-            {
-                id: 4,
-                title: "Marketing Intern",
-                company: "Growth Hackers",
-                logo: "/assets/img/dummyJobTrial.jpg",
-                location: "Hyderabad",
-                salary: "15,000 - 20,000",
-                cgpa: "6.5",
-                liveKT: "3",
-                experience: "Fresher",
-                description: "Great opportunity for marketing students to learn digital marketing strategies and work on real campaigns.",
-                applicants: 65,
-                type: "internship"
-            }
-        ];
+    <script src="/assets/js/indexJobs.js"></script>
 
-        // Display all jobs initially
-        document.addEventListener('DOMContentLoaded', function () {
-            displayJobs(jobs);
+    <!-- bottom to top js -->
+    <script src="/assets/js/bottomToTop.js"></script>
 
-            // Add event listener for filter button
-            document.getElementById('applyFilters').addEventListener('click', applyFilters);
-        });
+    <!-- chatbot js -->
+    <script src="/assets/js/chatbot.js"></script>
 
-        // Function to display jobs
-        function displayJobs(jobsToDisplay) {
-            const jobListings = document.getElementById('jobListings');
-            jobListings.innerHTML = '';
-
-            jobsToDisplay.forEach(job => {
-                const jobCard = document.createElement('div');
-                jobCard.className = 'col-md-6 mb-4';
-                jobCard.innerHTML = `
-                    <div class="job-card">
-                        <div class="job-header">
-                            <span class="badge bg-success">${job.type === 'fulltime' ? 'Full-time' : job.type === 'parttime' ? 'Part-time' : 'Internship'}</span>
-                            <span class="applicants">${job.applicants} applicants</span>
-                        </div>
-                        <div class="job-title">${job.title}</div>
-                        <div class="company-info">
-                            <img src="${job.logo}" alt="${job.company}" class="company-logo">
-                            <div>
-                                <div>${job.company}</div>
-                                <div class="location">${job.location}</div>
-                            </div>
-                        </div>
-                        <div class="buttons">
-                            <button class="details-btn" onclick="showJobDetails(${job.id})">View Details</button>
-                            <button class="apply-btn">Apply Now</button>
-                        </div>
-                    </div>
-                `;
-                jobListings.appendChild(jobCard);
-            });
-        }
-
-        // Function to show job details in modal
-        function showJobDetails(jobId) {
-            const job = jobs.find(j => j.id === jobId);
-            if (job) {
-                document.getElementById('modalJobTitle').textContent = job.title;
-                document.getElementById('modalCompany').textContent = job.company;
-                document.getElementById('modalLocation').textContent = job.location;
-                document.getElementById('modalSalary').textContent = job.salary;
-                document.getElementById('modalCgpa').textContent = job.cgpa;
-                document.getElementById('modalLiveKT').textContent = job.liveKT;
-                document.getElementById('modalExperience').textContent = job.experience;
-                document.getElementById('modalDescription').textContent = job.description;
-
-                document.getElementById('jobDetailsModal').style.display = 'flex';
-            }
-        }
-
-        // Function to close job details modal
-        function closeJobDetails() {
-            document.getElementById('jobDetailsModal').style.display = 'none';
-        }
-
-        // Function to apply filters
-        function applyFilters() {
-            const jobType = document.getElementById('jobType').value;
-            const location = document.getElementById('location').value;
-            const experience = document.getElementById('experience').value;
-
-            let filteredJobs = jobs;
-
-            if (jobType !== 'all') {
-                filteredJobs = filteredJobs.filter(job => job.type === jobType);
-            }
-
-            if (location !== 'all') {
-                filteredJobs = filteredJobs.filter(job => job.location.toLowerCase() === location);
-            }
-
-            if (experience !== 'all') {
-                if (experience === 'fresher') {
-                    filteredJobs = filteredJobs.filter(job => job.experience.toLowerCase() === 'fresher');
-                } else {
-                    filteredJobs = filteredJobs.filter(job => job.experience === experience);
-                }
-            }
-
-            displayJobs(filteredJobs);
-        }
-
-        // Function to toggle filters on mobile
-        function toggleFilters() {
-            const filterSection = document.getElementById('filterSection');
-            filterSection.classList.toggle('show');
-        }
-    </script>
     <script src="/assets/js/heroSection.js"></script>
+
     <!-- client section counter -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Counter animation function
-            function animateCounters() {
-                const counters = document.querySelectorAll('.stat-number');
-                const speed = 200; // The lower the faster
+    <script src="/assets/js/clientSectionCounter.js"></script>
 
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const increment = target / speed;
+    <script src="/assets/js/hamburger.js"></script>
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(animateCounters, 1);
-                    } else {
-                        // For the rating, we want one decimal place
-                        if (counter.getAttribute('data-target').includes('.')) {
-                            counter.innerText = target.toFixed(1);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    }
-                });
-            }
-
-            // Intersection Observer to trigger animation when section is in view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            const section = document.querySelector('.secure-placements');
-            observer.observe(section);
-        });
-    </script>
 </body>
 
 </html>
