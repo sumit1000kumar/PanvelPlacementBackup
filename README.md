@@ -12,7 +12,7 @@
 3. Page will open at: http://127.0.0.1:5500/admin-job.html
 
 
-
+```
 PanvelPlacementBackup
 ├─ admin-dashboard.html
 ├─ admin-job.html
@@ -33,6 +33,17 @@ PanvelPlacementBackup
 │  ├─ img
 │  │  ├─ bgTrial1.webp
 │  │  ├─ dummyJobTrial.jpg
+│  │  ├─ favicons
+│  │  │  ├─ android-chrome-192x192.png
+│  │  │  ├─ android-chrome-512x512.png
+│  │  │  ├─ apple-touch-icon.png
+│  │  │  ├─ favicon-16x16.png
+│  │  │  ├─ favicon-32x32.png
+│  │  │  ├─ favicon.ico
+│  │  │  └─ site.webmanifest
+│  │  ├─ heroSection1.webp
+│  │  ├─ heroSection2.webp
+│  │  ├─ heroSection3.webp
 │  │  └─ logo
 │  │     ├─ FaviconLogo.jpg
 │  │     ├─ navbarLogo.png
@@ -70,9 +81,12 @@ PanvelPlacementBackup
 │     ├─ 1745694174864.jpg
 │     ├─ 1745694441242-170184031-resume.pdf
 │     ├─ 1745694630762.png
-│     └─ 1745694721179-930940715-resume.pdf
+│     ├─ 1745694721179-930940715-resume.pdf
+│     └─ 1745702000252-481121797-MC_Analysis_Sumit.pdf
 ├─ backend
 │  ├─ .env
+│  ├─ assets
+│  │  └─ uploads
 │  ├─ config
 │  │  └─ db.js
 │  ├─ controllers

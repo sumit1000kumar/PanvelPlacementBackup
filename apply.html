@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apply Now</title>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+  <link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="192x192" href="/assets/img/favicons/android-chrome-192x192.png">
+  <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -75,8 +84,14 @@
       margin-top: -15px;
       margin-bottom: 20px;
     }
+
+    .redirect {
+      text-align: center;
+      padding: 10px 20px;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
 
@@ -104,6 +119,9 @@
 
       <button type="submit">Submit Application</button>
     </form>
+    <div class="redirect">
+      <span>Wanna Explore More Jobs – <a href="/jobs.html">Click Me!</a></span>
+    </div>
   </div>
 
   <!-- <script>
@@ -138,25 +156,25 @@
    
 
   </script> -->
-  
+
 
   <script>
     const form = document.getElementById('applicationForm');
     const params = new URLSearchParams(window.location.search);
     const jobId = params.get('jobId');
-  
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-  
+
       const formData = new FormData(form);
       formData.append('jobId', jobId);
-  
+
       try {
         const response = await fetch('https://panvel-placement-backend.onrender.com/api/apply', {  // <<----- updated endpoint to the production URL
           method: 'POST',
           body: formData,
         });
-  
+
         const result = await response.text();
         console.log(result); // <<----- changed to `.json()` because your backend should return JSON
         if (response.ok) {
@@ -171,7 +189,8 @@
       }
     });
   </script>
-  
+
 
 </body>
+
 </html>

@@ -6,19 +6,19 @@ require('dotenv').config();  // To use environment variables
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.ADMIN_EMAIL,  // Your admin email
-        pass: process.env.ADMIN_PASS,   // Your app password (not the Gmail password)
+        user: process.env.ADMIN_EMAIL,  
+        pass: process.env.ADMIN_PASS,   
     },
 });
 
 // Function to send email notification
 const sendNotificationEmail = async (formData) => {
     const mailOptions = {
-        from: process.env.ADMIN_EMAIL,  // Sender email
-        to: process.env.ADMIN_EMAIL,    // Recipient email (admin's email)
-        subject: `New Contact Form Submission: ${formData.subject}`,  // Subject of the email
+        from: process.env.ADMIN_EMAIL,  
+        to: process.env.ADMIN_EMAIL,   
+        subject: `New Inquiry from Website: ${formData.subject}`,  
         text: `
-            New contact form submission:
+            New Inquiry from Website:
 
             Name: ${formData.name}
             Email: ${formData.email}

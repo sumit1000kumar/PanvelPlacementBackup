@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,13 @@
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/resp.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+  <link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="192x192" href="/assets/img/favicons/android-chrome-192x192.png">
+  <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
   <style>
     :root {
       --primary-color: #3a0ca3;
@@ -19,32 +27,32 @@
       --text-light: #edf2f4;
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     body {
       background-color: var(--bg-color);
       color: var(--text-dark);
       line-height: 1.6;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 1rem;
     }
-    
+
     .section-title {
       text-align: center;
       margin-bottom: 3rem;
       position: relative;
     }
-    
+
     .section-title h2 {
       font-size: 2.5rem;
       color: var(--primary-color);
@@ -52,7 +60,7 @@
       display: inline-block;
       padding-bottom: 0.5rem;
     }
-    
+
     .section-title h2::after {
       content: '';
       position: absolute;
@@ -63,26 +71,26 @@
       bottom: 0;
       left: 15%;
     }
-    
+
     .section-title p {
       color: var(--text-dark);
       max-width: 700px;
       margin: 1rem auto 0;
       opacity: 0.8;
     }
-    
+
     /* Success Stories Section */
     .success-stories {
       padding: 2rem 0;
       background: linear-gradient(135deg, #8338ec10, #3a86ff10);
     }
-    
+
     .stories-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
     }
-    
+
     .story-card {
       background: white;
       border-radius: 12px;
@@ -90,12 +98,12 @@
       box-shadow: var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .story-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
-    
+
     .story-header {
       display: flex;
       align-items: center;
@@ -103,7 +111,7 @@
       background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
       color: var(--text-light);
     }
-    
+
     .story-image {
       width: 70px;
       height: 70px;
@@ -111,38 +119,38 @@
       object-fit: cover;
       border: 3px solid white;
     }
-    
+
     .story-student-info {
       margin-left: 1rem;
     }
-    
+
     .story-student-info h3 {
       font-size: 1.2rem;
       margin-bottom: 0.2rem;
     }
-    
+
     .story-content {
       padding: 1.5rem;
     }
-    
+
     .company-details {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
     }
-    
+
     .company-logo {
       width: 60px;
       height: 60px;
       object-fit: contain;
       margin-right: 1rem;
     }
-    
+
     .company-info h4 {
       color: var(--primary-color);
       margin-bottom: 0.2rem;
     }
-    
+
     .package {
       background-color: var(--accent-color);
       color: white;
@@ -153,36 +161,36 @@
       margin-top: 0.5rem;
       display: inline-block;
     }
-    
+
     .story-description {
       margin-top: 1rem;
       color: var(--text-dark);
       opacity: 0.9;
     }
-    
+
     /* Testimonials Section */
     .testimonials {
       padding: 4rem 0;
       background-color: white;
     }
-    
+
     .testimonial-carousel {
       position: relative;
       max-width: 900px;
       margin: 0 auto;
       overflow: hidden;
     }
-    
+
     .testimonial-track {
       display: flex;
       transition: transform 0.5s ease;
     }
-    
+
     .testimonial-slide {
       min-width: 100%;
       padding: 0 1rem;
     }
-    
+
     .testimonial-card {
       background: linear-gradient(135deg, var(--primary-color)05, var(--secondary-color)05);
       padding: 2rem;
@@ -190,7 +198,7 @@
       position: relative;
       box-shadow: var(--shadow);
     }
-    
+
     .testimonial-content {
       position: relative;
       padding: 1.5rem;
@@ -198,7 +206,7 @@
       border-radius: 8px;
       margin-bottom: 2rem;
     }
-    
+
     .testimonial-content::after {
       content: '';
       position: absolute;
@@ -209,12 +217,12 @@
       background: white;
       transform: rotate(45deg);
     }
-    
+
     .testimonial-content p {
       position: relative;
       font-style: italic;
     }
-    
+
     .testimonial-content p::before,
     .testimonial-content p::after {
       content: '"';
@@ -223,23 +231,23 @@
       opacity: 0.2;
       position: absolute;
     }
-    
+
     .testimonial-content p::before {
       top: -20px;
       left: -15px;
     }
-    
+
     .testimonial-content p::after {
       bottom: -40px;
       right: -15px;
     }
-    
+
     .testimonial-author {
       display: flex;
       align-items: center;
       margin-left: 2rem;
     }
-    
+
     .testimonial-author img {
       width: 60px;
       height: 60px;
@@ -247,23 +255,23 @@
       object-fit: cover;
       border: 3px solid var(--primary-color);
     }
-    
+
     .author-info {
       margin-left: 1rem;
     }
-    
+
     .author-info h4 {
       color: var(--primary-color);
       margin-bottom: 0.2rem;
     }
-    
+
     .carousel-buttons {
       display: flex;
       justify-content: center;
       margin-top: 2rem;
       gap: 1rem;
     }
-    
+
     .carousel-button {
       background: var(--primary-color);
       color: white;
@@ -278,11 +286,11 @@
       font-size: 1.2rem;
       transition: background 0.3s ease;
     }
-    
+
     .carousel-button:hover {
       background: var(--accent-color);
     }
-    
+
     /* Stats Counter */
     .stats-counter {
       background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -290,7 +298,7 @@
       color: white;
       text-align: center;
     }
-    
+
     .counter-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -298,37 +306,37 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-    
+
     .counter-item {
       padding: 1.5rem;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       backdrop-filter: blur(5px);
     }
-    
+
     .counter-number {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
-    
+
     .counter-label {
       font-size: 1.1rem;
       opacity: 0.9;
     }
-    
+
     /* Call to Action */
     .cta-section {
       text-align: center;
       padding: 4rem 0;
       background: var(--bg-color);
     }
-    
+
     .cta-content {
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
     .cta-button {
       display: inline-block;
       padding: 1rem 2rem;
@@ -341,70 +349,71 @@
       transition: transform 0.3s ease, background 0.3s ease;
       box-shadow: var(--shadow);
     }
-    
+
     .cta-button:hover {
       transform: translateY(-5px);
       background: var(--primary-color);
     }
-    
+
     /* Animations for Success Stories */
     @keyframes floatUp {
       0% {
         transform: translateY(20px);
         opacity: 0;
       }
+
       100% {
         transform: translateY(0);
         opacity: 1;
       }
     }
-    
+
     /* Responsive Styles */
     @media (max-width: 768px) {
       .section-title h2 {
         font-size: 2rem;
       }
-      
+
       .stories-container {
         grid-template-columns: 1fr;
       }
-      
+
       .story-header {
         flex-direction: column;
         text-align: center;
       }
-      
+
       .story-student-info {
         margin-left: 0;
         margin-top: 1rem;
       }
-      
+
       .company-details {
         flex-direction: column;
         text-align: center;
       }
-      
+
       .company-logo {
         margin-right: 0;
         margin-bottom: 1rem;
       }
-      
+
       .testimonial-author {
         flex-direction: column;
         text-align: center;
         margin-left: 0;
       }
-      
+
       .author-info {
         margin-left: 0;
         margin-top: 1rem;
       }
-      
+
       .counter-container {
         grid-template-columns: 1fr 1fr;
       }
     }
-    
+
     @media (max-width: 480px) {
       .counter-container {
         grid-template-columns: 1fr;
@@ -412,65 +421,68 @@
     }
   </style>
 </head>
-<body>
-    <header>
-        <!-- topbar starts -->
-        <div class="topbar container-fluid p-2">
-            <div class="row">
-                <div class="topbarContent col-lg-10 col-sm-9 col-9">
-                    <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
-                        Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
-                        successful placements & counting — be our next success story! | 📍 Job listings updated in real
-                        time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
-                        Panvel!</marquee>
-                </div>
-                <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
-                    <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- topbar ends -->
 
-        <!-- navbar starts -->
-        <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo" id="navbarLogo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span><i class="fa-solid fa-bars-staggered"></i></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">Jobs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/testimonial.html">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
-                </div>
-            </div>
-        </nav>
-        <!-- navbar ends -->
-    </header>
+<body>
+  <header>
+    <!-- topbar starts -->
+    <div class="topbar container-fluid p-2">
+      <div class="row">
+        <div class="topbarContent col-lg-10 col-sm-9 col-9">
+          <marquee behavior="" direction="left">🎯 New job openings every week — stay updated with Panvel
+            Placement! | 💼 Top companies hiring: Infosys, Wipro, Accenture, Capgemini & more! | 🚀 200+
+            successful placements & counting — be our next success story! | 📍 Job listings updated in real
+            time — no more outdated posts! | 🤝 Partner with us — trusted by colleges & recruiters across
+            Panvel!</marquee>
+        </div>
+        <div class="topbarSocial col-lg-2 col-sm-3 col-3 d-flex gap-3 justify-content-center">
+          <a href="https://www.facebook.com/@panvelplacement/"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="notVisibleInMob"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/panvelplacement_panvelarea/"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="notVisibleInMob"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- topbar ends -->
+
+    <!-- navbar starts -->
+    <nav class="navbar navbar-expand-lg sticky-top p-0 m-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"><img src="/assets/img/logo/navbarLogoWhiteBg-final.jpg" alt="Logo"
+            id="navbarLogo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span><i class="fa-solid fa-bars-staggered"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/testimonial.html">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact</a>
+            </li>
+          </ul>
+          <button class="btn navBtn"><a href="tel:9324817506">Reach Out</a></button>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar ends -->
+  </header>
   <!-- Success Stories Section -->
   <section class="success-stories" id="success-stories">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
         <h2>Placement Success Stories</h2>
-        <p>Our students are working in top companies across the globe. Here are some of our recent placement success stories.</p>
+        <p>Our students are working in top companies across the globe. Here are some of our recent placement success
+          stories.</p>
       </div>
-      
+
       <div class="stories-container">
         <!-- Story Card 1 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="100">
@@ -491,11 +503,12 @@
               </div>
             </div>
             <p class="story-description">
-              "Panvel Placement Cell helped me secure my dream job at Amazon. The mock interviews and technical training were invaluable for my preparation."
+              "Panvel Placement Cell helped me secure my dream job at Amazon. The mock interviews and technical training
+              were invaluable for my preparation."
             </p>
           </div>
         </div>
-        
+
         <!-- Story Card 2 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="200">
           <div class="story-header">
@@ -515,11 +528,12 @@
               </div>
             </div>
             <p class="story-description">
-              "The industry connections and placement preparation workshops at Panvel helped me stand out in the interview process at Microsoft."
+              "The industry connections and placement preparation workshops at Panvel helped me stand out in the
+              interview process at Microsoft."
             </p>
           </div>
         </div>
-        
+
         <!-- Story Card 3 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="300">
           <div class="story-header">
@@ -539,11 +553,12 @@
               </div>
             </div>
             <p class="story-description">
-              "From resume building to technical interview preparation, Panvel Placement Cell guided me through every step of the recruitment process."
+              "From resume building to technical interview preparation, Panvel Placement Cell guided me through every
+              step of the recruitment process."
             </p>
           </div>
         </div>
-        
+
         <!-- Story Card 4 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="400">
           <div class="story-header">
@@ -563,11 +578,12 @@
               </div>
             </div>
             <p class="story-description">
-              "The industry exposure and internship opportunities provided by Panvel Placement Cell played a crucial role in my selection at JP Morgan."
+              "The industry exposure and internship opportunities provided by Panvel Placement Cell played a crucial
+              role in my selection at JP Morgan."
             </p>
           </div>
         </div>
-        
+
         <!-- Story Card 5 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="500">
           <div class="story-header">
@@ -587,11 +603,12 @@
               </div>
             </div>
             <p class="story-description">
-              "The specialized training in AI and ML offered by Panvel helped me ace the technical rounds at Adobe and secure a great package."
+              "The specialized training in AI and ML offered by Panvel helped me ace the technical rounds at Adobe and
+              secure a great package."
             </p>
           </div>
         </div>
-        
+
         <!-- Story Card 6 -->
         <div class="story-card" data-aos="fade-up" data-aos-delay="600">
           <div class="story-header">
@@ -611,14 +628,15 @@
               </div>
             </div>
             <p class="story-description">
-              "The aptitude training and coding practice sessions at Panvel were extremely helpful in clearing the TCS selection process."
+              "The aptitude training and coding practice sessions at Panvel were extremely helpful in clearing the TCS
+              selection process."
             </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Stats Counter Section -->
   <section class="stats-counter" id="stats">
     <div class="container">
@@ -642,7 +660,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
     <div class="container">
@@ -650,14 +668,16 @@
         <h2>Student Testimonials</h2>
         <p>Here's what our students have to say about their placement experience with us.</p>
       </div>
-      
+
       <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="200">
         <div class="testimonial-track">
           <!-- Testimonial 1 -->
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
-                <p>The placement team at Panvel was extremely supportive throughout my job search. Their guidance on resume building and interview preparation was instrumental in my placement at Infosys. The mock interviews helped me gain confidence for the actual interviews.</p>
+                <p>The placement team at Panvel was extremely supportive throughout my job search. Their guidance on
+                  resume building and interview preparation was instrumental in my placement at Infosys. The mock
+                  interviews helped me gain confidence for the actual interviews.</p>
               </div>
               <div class="testimonial-author">
                 <img src="/api/placeholder/400/320" alt="Student Photo">
@@ -668,12 +688,14 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Testimonial 2 -->
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
-                <p>I am grateful to the placement cell for organizing campus recruitment drives with top companies. The aptitude training sessions and technical workshops prepared me well for the selection process. I highly recommend the placement services at Panvel.</p>
+                <p>I am grateful to the placement cell for organizing campus recruitment drives with top companies. The
+                  aptitude training sessions and technical workshops prepared me well for the selection process. I
+                  highly recommend the placement services at Panvel.</p>
               </div>
               <div class="testimonial-author">
                 <img src="/api/placeholder/400/320" alt="Student Photo">
@@ -684,12 +706,14 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Testimonial 3 -->
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
-                <p>The placement team went above and beyond to help students get placed in good companies. The industry connections and networking opportunities provided by the placement cell were incredibly valuable. I secured a great job thanks to their support.</p>
+                <p>The placement team went above and beyond to help students get placed in good companies. The industry
+                  connections and networking opportunities provided by the placement cell were incredibly valuable. I
+                  secured a great job thanks to their support.</p>
               </div>
               <div class="testimonial-author">
                 <img src="/api/placeholder/400/320" alt="Student Photo">
@@ -700,12 +724,14 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Testimonial 4 -->
           <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
-                <p>The placement preparation workshops helped me understand the recruitment process better. The mock group discussions and personal interviews were very similar to the actual ones, which made me well-prepared. Thanks to Panvel for helping me start my career!</p>
+                <p>The placement preparation workshops helped me understand the recruitment process better. The mock
+                  group discussions and personal interviews were very similar to the actual ones, which made me
+                  well-prepared. Thanks to Panvel for helping me start my career!</p>
               </div>
               <div class="testimonial-author">
                 <img src="/api/placeholder/400/320" alt="Student Photo">
@@ -717,7 +743,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="carousel-buttons">
           <button class="carousel-button prev-button">←</button>
           <button class="carousel-button next-button">→</button>
@@ -725,7 +751,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Call to Action Section -->
   <section class="cta-section" id="cta">
     <div class="container">
@@ -736,53 +762,53 @@
       </div>
     </div>
   </section>
-  
+
   <script>
     // Initialize AOS (Animate on Scroll)
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
         offset: 100
       });
-      
+
       // Testimonial Carousel
       const track = document.querySelector('.testimonial-track');
       const slides = document.querySelectorAll('.testimonial-slide');
       const prevButton = document.querySelector('.prev-button');
       const nextButton = document.querySelector('.next-button');
       let currentIndex = 0;
-      
+
       function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
       }
-      
+
       function nextSlide() {
         currentIndex = (currentIndex + 1) % slides.length;
         updateCarousel();
       }
-      
+
       function prevSlide() {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         updateCarousel();
       }
-      
+
       nextButton.addEventListener('click', nextSlide);
       prevButton.addEventListener('click', prevSlide);
-      
+
       // Auto-play carousel
       setInterval(nextSlide, 5000);
-      
+
       // Counter Animation
       const counters = document.querySelectorAll('.counter-number');
-      
+
       counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-count'));
         const duration = 2000; // 2 seconds
         const step = Math.ceil(target / (duration / 30)); // Update every 30ms
         let current = 0;
-        
+
         const updateCounter = () => {
           current += step;
           if (current > target) {
@@ -791,10 +817,11 @@
           }
           counter.textContent = current;
         };
-        
+
         const timer = setInterval(updateCounter, 30);
       });
     });
   </script>
 </body>
+
 </html>
